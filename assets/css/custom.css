@@ -1,0 +1,17 @@
+body {
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 14;
+}
+
+pre {
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 10;
+}
+
+small {
+  color: #aaaaaa;
+}
+
+h1, h2, h3 {
+  color: #00bc8c;
+}
