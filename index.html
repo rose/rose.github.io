@@ -65,25 +65,19 @@
         </small></h1>
         <hr>
         <div class="p-summary">
-        <div><p>If and when I work up the nerve to interview, I know exactly how to answer one question:  My greatest weakness is perfectionism.</p>
-<p>This isn't some bullshit "Ah'm so awesome, even mah weaknesses are strengths" answer.  Perfectionism sucks.  There's a line between paying attention to details and being utterly paralyzed by preemptive self-criticism.  My aspiration is to get closer to that line, so I can throw rocks at those attentive assholes.</p>
-<p>Hah!  Just kidding, bro.  One thing an aspiring programmer is supposed to do is write a blog that appeals to the kind of person who makes hiring decisions based on blogs <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id6" id="id1">[1]</a>.</p>
-<p>You know the blogs I mean.  The ones full of bouncy little posts about writing a C++ compiler in SQL while completing an iron man triathlon, with just enough self-deprecating humour to show that the author hasn't let his obvious awesomeness go to his head.  Rather enjoy them myself.</p>
-<p>In fact, I've been looking forward to writing a blog like that for some time, but the impressive projects still don't seem to have materialized.  What to do?</p>
-<p>Well, step number A is to get over my codestipation.  I've been doing that by forcing out a little pellet of code every morning, regardless of whether I feel the urge.  It's oddly satisfying to just lower my standards and <em>make</em> something, no matter how hard <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id7" id="id2">[2]</a> it is.</p>
-<p>So, here's my first attempt at cheerily boasting about my latest emission.  Ugh.  I mean, enjoy!</p>
-<div class="section" id="zomg-you-guys-decorators-are-so-cool">
-<h2>ZOMG You Guys Decorators are So Cool</h2>
-<small>An awesome blog post by Rose Ames!  Follow me on Twitter or I'll eat your face!</small><br> <p>Today I was telling my husband about decorators!  They take a thing and run it through a bunch of publicly unacknowledged manoeuvers, leaving the thing outwardly the same even though inwardly it will never ever be the same again.  So they're basically like sex, except that I'm going to show you how we did them last night.  Ready?  Cool beans!</p>
-<p>Here's a fibonacci function in python (I know, pretty vanilla.  We'll get to the good stuff in a minute).</p>
+        <div><p>Here's a fibonacci function in python.</p>
 <pre class="code python literal-block">
 <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
   <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
   <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </pre>
-<p>Import that sucker into your repl and give it a whirl.  If you've never encountered exponential runtime before it's pretty eye-opening.  On my computer, fib(25) is instant, fib(30) has a barely noticeable pause, fib(35) takes a couple seconds, and fib(40) maxed out one of my processors for about 20 seconds before I got bored and ^c'ed it.</p>
-<p>Even if your computer's twice as fast as mine, I bet you don't sit through fib(50).</p>
-<p>Now, it's not too much trouble to alter this function, either to make it iterative or to store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same problem?</p>
+<p>You probably know why this is terrible.  If you've never encountered exponential runtime before, try running this on increasing numbers - it's pretty eye-opening.</p>
+<pre class="code python literal-block">
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+<span class="o">...</span>   <span class="k">print</span> <span class="p">(</span><span class="s">"fib </span><span class="si">%d</span><span class="s">: </span><span class="si">%d</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+</pre>
+<p>On my computer, the values up to 25 print instantly.  30 takes a noticeable fraction of a second, 35 a couple of seconds... and 40 maxes out one of my processors until I get bored and kill it.  Even if your computer and your attention span are both twice as good as mine, I bet you don't sit through fib(50).</p>
+<p>Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?</p>
 <p>Well, we're programmers.  Let's automate that shit.</p>
 <pre class="code python literal-block">
 <span class="k">def</span> <span class="nf">cache</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -95,76 +89,47 @@
     <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
   <span class="k">return</span> <span class="n">cached_func</span>
 </pre>
-<p>That'll show 'em!  Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id8" id="id3">[3]</a>!</p>
+<p>Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id2" id="id1">[1]</a>:</p>
 <pre class="code python literal-block">
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c"># takes a couple seconds!  HOW CAN THIS BE???</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c"># second call is instant.  Hmmm...</span>
 </pre>
-<p>Do you see what's going on here?  We're calling cached_fib(35), and it is caching its result just as we commanded lo these many seconds ago.  However.  All those nasty exponentially-breeding subcalls are to the original, uncached version of fib - so the initial calculation is still mucho crapslow.</p>
-<p>But we can fix that, because we're <em>just that nifty</em>, aren't we? <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id9" id="id4">[4]</a></p>
+<p>Do you see what's going on here?  We're calling cached_fib(35), and it is caching its result just as we commanded lo these many seconds ago.  However.  All those exponentially-breeding subcalls are to the original, uncached version of fib - so the initial calculation is still mucho crapslow.</p>
+<p>But we can fix that, because we're <em>just that nifty</em>.</p>
 <pre class="code python literal-block">
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span> <span class="o">=</span> <span class="n">cached_fib</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="c"># instant</span>
 </pre>
-<p>Isn't that beautiful?  If you're not somewhat sexually aroused right now get the hell off my blog.</p>
+<p>Awesome.</p>
 <p>It turns out this pattern...</p>
 <pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">do_fancy_shit_to</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-  <span class="c"># create some_other_func by doing fancy shit to func</span>
+<span class="k">def</span> <span class="nf">do_fancy_stuff_to</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+  <span class="c"># create some_other_func by doing fancy stuff to func</span>
   <span class="k">return</span> <span class="n">some_other_func</span>
 
 <span class="k">def</span> <span class="nf">pirate_say</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-  <span class="c"># do regular shit</span>
+  <span class="c"># do regular stuff</span>
 
-<span class="n">pirate_say</span> <span class="o">=</span> <span class="n">do_fancy_shit_to</span><span class="p">(</span><span class="n">pirate_say</span><span class="p">)</span>
+<span class="n">pirate_say</span> <span class="o">=</span> <span class="n">do_fancy_stuff_to</span><span class="p">(</span><span class="n">pirate_say</span><span class="p">)</span>
 </pre>
 <p>... is actually pretty common.  Common enough that Guido van-passing-an-object-explicitly-to-its-methods-was-good-enough-for-my-gramma-and-dammit-it's-good-enough-for-you-Rossum saw fit to include syntactic sugar for it; the above is exactly equivalent to</p>
 <pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">do_fancy_shit_to</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-  <span class="c"># create some_other_func by doing fancy shit to func</span>
+<span class="k">def</span> <span class="nf">do_fancy_stuff_to</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+  <span class="c"># create some_other_func by doing stuff to func</span>
   <span class="k">return</span> <span class="n">some_other_func</span>
 
-<span class="nd">@do_fancy_shit_to</span>
+<span class="nd">@do_fancy_stuff_to</span>
 <span class="k">def</span> <span class="nf">pirate_say</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-  <span class="c"># do regular shit</span>
+  <span class="c"># do regular stuff</span>
 </pre>
 <p>Thanks Guido!</p>
-</div>
-<div class="section" id="epilogue">
-<h2>Epilogue</h2>
-<p>Well, I achieved half of the goals <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id10" id="id5">[5]</a> I set for this post.  It's not perfect, but it's what I've got, and that'll have to do.  At least until I finish my interactive graphic novel/dissertation about the version-controlled distributed database I'm planning to write in brainfuck.</p>
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id6" rules="none">
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label"><col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id1">[1]</a></td><td>Not to stereotype, but they're all upper middle class 21-year-old boys who live on pizza and red bull and play a lot of ping-pong.  God help me.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id1">[1]</a></td><td>That's what REPL actually stands for.  I think it's Finnish or something.</td></tr>
 </tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id7" rules="none">
-<colgroup><col class="label"><col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id2">[2]</a></td><td>and smelly</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id8" rules="none">
-<colgroup><col class="label"><col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id3">[3]</a></td><td>That's what REPL actually stands for.  I think it's Finnish or something.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id9" rules="none">
-<colgroup><col class="label"><col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id4">[4]</a></td><td>I ASKED YOU A QUESTION SCUM!!!</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id10" rules="none">
-<colgroup><col class="label"><col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id5">[5]</a></td><td>short and crappy.</td></tr>
-</tbody>
-</table>
-</div></div>
+</table></div>
         </div>
             
         
