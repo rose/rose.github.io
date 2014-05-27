@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Superluser (python)</title><link>http://rose.github.io/</link><description></description><atom:link rel="self" type="application/rss+xml" href="http://rose.github.io/categories/python.xml"></atom:link><language>en</language><lastBuildDate>Mon, 26 May 2014 15:20:47 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Baby's First Decorator - Caching Functions</title><link>http://rose.github.io/posts/babys-first-decorator-caching-functions/</link><description>&lt;div&gt;&lt;p&gt;Here's a fibonacci function in python.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Superluser (python)</title><link>http://rose.github.io/</link><description></description><atom:link href="http://rose.github.io/categories/python.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Mon, 26 May 2014 20:07:18 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Baby's First Decorator - Caching Functions</title><link>http://rose.github.io/posts/babys-first-decorator-caching-functions/</link><description>&lt;div&gt;&lt;p&gt;Here's a fibonacci function in python.&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
@@ -12,55 +12,4 @@
 &lt;/pre&gt;
 &lt;p&gt;On my computer, the values up to 25 print instantly.  30 takes a noticeable fraction of a second, 35 a couple of seconds... and 40 maxes out one of my processors until I get bored and kill it.  Even if your computer and your attention span are both twice as good as mine, I bet you don't sit through fib(50).&lt;/p&gt;
 &lt;p&gt;Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?&lt;/p&gt;
-&lt;p&gt;Well, we're programmers.  Let's automate that shit.&lt;/p&gt;
-&lt;pre class="code python literal-block"&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="n"&gt;cache&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;cached_func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;cached_func&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box &lt;a class="footnote-reference" href="http://rose.github.io/posts/babys-first-decorator-caching-functions/#id2" id="id1"&gt;[1]&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class="code python literal-block"&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;cached_fib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cache&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;cached_fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# takes a couple seconds!  HOW CAN THIS BE???&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;cached_fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;35&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# second call is instant.  Hmmm...&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Do you see what's going on here?  We're calling cached_fib(35), and it is caching its result just as we commanded lo these many seconds ago.  However.  All those exponentially-breeding subcalls are to the original, uncached version of fib - so the initial calculation is still mucho crapslow.&lt;/p&gt;
-&lt;p&gt;But we can fix that, because we're &lt;em&gt;just that nifty&lt;/em&gt;.&lt;/p&gt;
-&lt;pre class="code python literal-block"&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;fib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;cached_fib&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c"&gt;# instant&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Awesome.&lt;/p&gt;
-&lt;p&gt;It turns out this pattern...&lt;/p&gt;
-&lt;pre class="code python literal-block"&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;do_fancy_stuff_to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="c"&gt;# create some_other_func by doing fancy stuff to func&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;some_other_func&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;pirate_say&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="c"&gt;# do regular stuff&lt;/span&gt;
-
-&lt;span class="n"&gt;pirate_say&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;do_fancy_stuff_to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pirate_say&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;... is actually pretty common.  Common enough that Guido van-passing-an-object-explicitly-to-its-methods-was-good-enough-for-my-gramma-and-dammit-it's-good-enough-for-you-Rossum saw fit to include syntactic sugar for it; the above is exactly equivalent to&lt;/p&gt;
-&lt;pre class="code python literal-block"&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;do_fancy_stuff_to&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="c"&gt;# create some_other_func by doing stuff to func&lt;/span&gt;
-  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;some_other_func&lt;/span&gt;
-
-&lt;span class="nd"&gt;@do_fancy_stuff_to&lt;/span&gt;
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;pirate_say&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-  &lt;span class="c"&gt;# do regular stuff&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Thanks Guido!&lt;/p&gt;
-&lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;table class="docutils footnote" frame="void" id="id2" rules="none"&gt;
-&lt;colgroup&gt;&lt;col class="label"&gt;&lt;col&gt;&lt;/colgroup&gt;
-&lt;tbody valign="top"&gt;
-&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="http://rose.github.io/posts/babys-first-decorator-caching-functions/#id1"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;That's what REPL actually stands for.  I think it's Finnish or something.&lt;/td&gt;&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;</description><category>python</category><guid>http://rose.github.io/posts/babys-first-decorator-caching-functions/</guid><pubDate>Sun, 18 May 2014 12:17:11 GMT</pubDate></item></channel></rss>
+&lt;p class="more"&gt;&lt;a href="http://rose.github.io/posts/babys-first-decorator-caching-functions/"&gt;Read more…&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><category>python</category><guid>http://rose.github.io/posts/babys-first-decorator-caching-functions/</guid><pubDate>Sun, 18 May 2014 12:17:11 GMT</pubDate></item></channel></rss>

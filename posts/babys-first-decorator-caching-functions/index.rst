@@ -25,6 +25,8 @@ On my computer, the values up to 25 print instantly.  30 takes a noticeable frac
 
 Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?
 
+.. TEASER_END
+
 Well, we're programmers.  Let's automate that shit.
 
 .. code:: python
@@ -33,12 +35,11 @@ Well, we're programmers.  Let's automate that shit.
     cache = {}
     def cached_func(arg):
       if arg not in cache:
-        result = func(arg)
-        cache[arg] = result
+        cache[arg] = func(arg)
       return cache[arg]
     return cached_func
 
-Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box [1]_:
+Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box: [1]_
 
 .. code:: python
 
@@ -88,7 +89,7 @@ Thanks Guido!
 
   <br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;
 
-.. [1] That's what REPL actually stands for.  I think it's Finnish or something.
+.. [1] If you're playing along at home, don't use import to get the functions from a file and play with them in the repl.  Everything needs to be in the same namespace; so put it all in a file, or type it all in the repl, or use python -i.  The last is what I'm doing in all the examples above.
 
 
 

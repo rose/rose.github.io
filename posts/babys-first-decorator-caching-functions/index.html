@@ -99,18 +99,18 @@
 </pre>
 <p>On my computer, the values up to 25 print instantly.  30 takes a noticeable fraction of a second, 35 a couple of seconds... and 40 maxes out one of my processors until I get bored and kill it.  Even if your computer and your attention span are both twice as good as mine, I bet you don't sit through fib(50).</p>
 <p>Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?</p>
+<!-- TEASER_END -->
 <p>Well, we're programmers.  Let's automate that shit.</p>
 <pre class="code python literal-block">
 <span class="k">def</span> <span class="nf">cache</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
   <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
   <span class="k">def</span> <span class="nf">cached_func</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">arg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
-      <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-      <span class="n">cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+      <span class="n">cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
   <span class="k">return</span> <span class="n">cached_func</span>
 </pre>
-<p>Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box <a class="footnote-reference" href="../../posts/babys-first-decorator-caching-functions/#id2" id="id1">[1]</a>:</p>
+<p>Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box: <a class="footnote-reference" href="../../posts/babys-first-decorator-caching-functions/#id2" id="id1">[1]</a></p>
 <pre class="code python literal-block">
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c"># takes a couple seconds!  HOW CAN THIS BE???</span>
@@ -148,7 +148,7 @@
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id2" rules="none">
 <colgroup><col class="label"><col></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="../../posts/babys-first-decorator-caching-functions/#id1">[1]</a></td><td>That's what REPL actually stands for.  I think it's Finnish or something.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="../../posts/babys-first-decorator-caching-functions/#id1">[1]</a></td><td>If you're playing along at home, don't use import to get the functions from a file and play with them in the repl.  Everything needs to be in the same namespace; so put it all in a file, or type it all in the repl, or use python -i.  The last is what I'm doing in all the examples above.</td></tr>
 </tbody>
 </table></div>
     </div>

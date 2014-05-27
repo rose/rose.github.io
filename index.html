@@ -110,58 +110,7 @@
 </pre>
 <p>On my computer, the values up to 25 print instantly.  30 takes a noticeable fraction of a second, 35 a couple of seconds... and 40 maxes out one of my processors until I get bored and kill it.  Even if your computer and your attention span are both twice as good as mine, I bet you don't sit through fib(50).</p>
 <p>Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?</p>
-<p>Well, we're programmers.  Let's automate that shit.</p>
-<pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">cache</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-  <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="k">def</span> <span class="nf">cached_func</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">arg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
-      <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-      <span class="n">cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
-    <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">arg</span><span class="p">]</span>
-  <span class="k">return</span> <span class="n">cached_func</span>
-</pre>
-<p>Thanks to the Magic of Closures, we can create a function that stores the output of func(n) the first time we calculate it, and then just returns the stored value the next time that result is requested.  Let's try it out in the Super Evaluating-Loop Box <a class="footnote-reference" href="posts/babys-first-decorator-caching-functions/#id2" id="id1">[1]</a>:</p>
-<pre class="code python literal-block">
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span> <span class="o">=</span> <span class="n">cache</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c"># takes a couple seconds!  HOW CAN THIS BE???</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">cached_fib</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span> <span class="c"># second call is instant.  Hmmm...</span>
-</pre>
-<p>Do you see what's going on here?  We're calling cached_fib(35), and it is caching its result just as we commanded lo these many seconds ago.  However.  All those exponentially-breeding subcalls are to the original, uncached version of fib - so the initial calculation is still mucho crapslow.</p>
-<p>But we can fix that, because we're <em>just that nifty</em>.</p>
-<pre class="code python literal-block">
-<span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span> <span class="o">=</span> <span class="n">cached_fib</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">fib</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="c"># instant</span>
-</pre>
-<p>Awesome.</p>
-<p>It turns out this pattern...</p>
-<pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">do_fancy_stuff_to</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-  <span class="c"># create some_other_func by doing fancy stuff to func</span>
-  <span class="k">return</span> <span class="n">some_other_func</span>
-
-<span class="k">def</span> <span class="nf">pirate_say</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-  <span class="c"># do regular stuff</span>
-
-<span class="n">pirate_say</span> <span class="o">=</span> <span class="n">do_fancy_stuff_to</span><span class="p">(</span><span class="n">pirate_say</span><span class="p">)</span>
-</pre>
-<p>... is actually pretty common.  Common enough that Guido van-passing-an-object-explicitly-to-its-methods-was-good-enough-for-my-gramma-and-dammit-it's-good-enough-for-you-Rossum saw fit to include syntactic sugar for it; the above is exactly equivalent to</p>
-<pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">do_fancy_stuff_to</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-  <span class="c"># create some_other_func by doing stuff to func</span>
-  <span class="k">return</span> <span class="n">some_other_func</span>
-
-<span class="nd">@do_fancy_stuff_to</span>
-<span class="k">def</span> <span class="nf">pirate_say</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
-  <span class="c"># do regular stuff</span>
-</pre>
-<p>Thanks Guido!</p>
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id2" rules="none">
-<colgroup><col class="label"><col></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="posts/babys-first-decorator-caching-functions/#id1">[1]</a></td><td>That's what REPL actually stands for.  I think it's Finnish or something.</td></tr>
-</tbody>
-</table></div>
+<p class="more"><a href="posts/babys-first-decorator-caching-functions/">Read more…</a></p></div>
         </div>
             
         
