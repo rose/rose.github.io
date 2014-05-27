@@ -59,6 +59,38 @@
         <div class="row">
             
         <article class="postbox h-entry post-text">
+        <h1 class="p-name"><a href="posts/incremental-complexity/" class="u-url">Incremental Complexity</a>
+        <small>  
+             Posted: <time class="published dt-published" datetime="2014-05-26T15:04:02+00:00">2014-05-26 15:04</time>
+        </small></h1>
+        <hr>
+        <div class="p-summary">
+        <div><p>A friend suggested, perhaps facetiously, that I should do a post on incrementation.  It took me down some surprisingly interesting roads; of them all, here's my favourite.</p>
+<p>There are a number of implementations of Peano numbers in C++ templates, <a class="footnote-reference" href="posts/incremental-complexity/#id4" id="id1">[1]</a> but most of them use ints in some form or other, for example:</p>
+<pre class="code c++ literal-block">
+<span class="k">struct</span> <span class="n">Zero</span> <span class="p">{</span> <span class="k">enum</span> <span class="p">{</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">};</span> <span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">N</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">Succ</span> <span class="p">{</span> <span class="k">enum</span> <span class="p">{</span> <span class="n">value</span> <span class="o">=</span> <span class="n">N</span><span class="o">::</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">};</span> <span class="p">};</span>
+</pre>
+<p>This is fine as far as it goes, but it's still explicitly depending on the computer's ability to do arithmetic on ints.  If you're going to type the characters "+ 1" anyway, you might as well give up and use python.  I prefer the following:</p>
+<pre class="code c++ literal-block">
+<span class="k">struct</span> <span class="n">Zero</span> <span class="p">{</span> <span class="p">};</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
+<span class="k">struct</span> <span class="n">Succ</span> <span class="p">{</span> <span class="p">};</span>
+</pre>
+<p>This shows what's happening much more clearly.  We're not using numbers to define incrementation; we're <strong>using incrementation to define numbers</strong>.  Let's see what we can do with these numbers...</p>
+<p class="more"><a href="posts/incremental-complexity/">Read more…</a></p></div>
+        </div>
+            
+        
+    <p>
+        <a href="posts/incremental-complexity/#disqus_thread" data-disqus-identifier="cache/posts/incremental-complexity.html">Comments</a>
+
+
+        </p></article>
+        <article class="postbox h-entry post-text">
         <h1 class="p-name"><a href="posts/babys-first-decorator-caching-functions/" class="u-url">Baby's First Decorator - Caching Functions</a>
         <small>  
              Posted: <time class="published dt-published" datetime="2014-05-18T12:17:11+00:00">2014-05-18 12:17</time>
