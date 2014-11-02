@@ -59,6 +59,84 @@
         <div class="row">
             
         <article class="postbox h-entry post-text">
+        <h1 class="p-name"><a href="posts/starting-with-a-bang/" class="u-url">Starting with a Bang</a>
+        <small>  
+             Posted: <time class="published dt-published" datetime="2014-11-02T10:13:30+00:00">2014-11-02 10:13</time>
+        </small></h1>
+        <hr>
+        <div class="p-summary">
+        <div><p>You don't use a linux system for long without learning about !!.  It's handy in situations like this:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"I'm king of the world!"</span> &gt;/etc/fstab
+lolwutno
+<span class="nv">$ </span>sudo !! <span class="c"># DO NOT ACTUALLY DO THIS
+</span>sudo <span class="nb">echo</span> <span class="s2">"I'm king of the world!"</span> &gt;/etc/fstab
+pswdplz:
+okfinewtvr
+</pre>
+<p>But history expansion can do much more than repeat the last command.</p>
+<p>You can retrieve any command from your history:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span><span class="nb">history</span>
+...
+502 <span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+503 ls
+504 touch yesyouare
+505 <span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+506 ls
+507 <span class="nb">cd</span> /etc
+<span class="nv">$ </span>!-3 <span class="c"># !! is the last command, !-2 is the command before that, and so on
+</span><span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+I<span class="err">'</span>m king of the world
+<span class="nv">$ </span>sudo !504
+sudo touch yesyouare
+</pre>
+<p>But it's often easier to search for the last command that started with a given string:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>!echo
+<span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+I<span class="err">'</span>m king of the world
+<span class="nv">$ </span>!v
+vim ~/reasons_I_need_a_psychiatrist
+</pre>
+<p>These are simple string substitutions - bash replaces !! with the characters of your last command, then executes the resulting command.  So with !! and the numerical operators you can do stuff like:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>vim dave
+dave<span class="s1">'s not here
+$ ls
+dave.py
+$ !-2.py # !vim.py would look for a command beginning with '</span>vim.py<span class="err">'</span>
+vim dave.py
+</pre>
+<p>You can also extract parts of commands!  The one I use most is !$ for the last argument:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>ls some/godawful/long/path/probably/from/a/java/project/
+file.txt    otherstuff.java
+<span class="nv">$ </span>vim !<span class="nv">$file</span>.txt
+vim some/godawful/long/path/probably/from/a/java/project/file.txt
+</pre>
+<p>You can also get all the arguments, or just the first one:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>touch foo bar baz <span class="c"># whoops, I'm in the wrong directory
+</span><span class="nv">$ </span>mv !* projects/foobar
+mv foo bar baz projects/foobar
+</pre>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>cp /boot/initramfs-linux.img ~/backupdir
+<span class="nv">$ </span>sudo vim !^
+sudo vim /boot/initramfs-linux.img <span class="c"># I've got a GREAT idea!</span>
+</pre>
+<p>There's more, but I'll stop here for now.</p>
+<p>You can go pretty far with only a very basic understanding of bash, but shells are actually very interesting tools that will help you more if you give them a chance.  If you spend a lot of time on the command line, it's well worth the learning curve.</p></div>
+        </div>
+            
+        
+    <p>
+        <a href="posts/starting-with-a-bang/#disqus_thread" data-disqus-identifier="cache/posts/starting-with-a-bang.html">Comments</a>
+
+
+        </p></article>
+        <article class="postbox h-entry post-text">
         <h1 class="p-name"><a href="posts/30-failures-in-30-days/" class="u-url">30 Failures in 30 Days</a>
         <small>  
              Posted: <time class="published dt-published" datetime="2014-11-01T18:07:19+00:00">2014-11-01 18:07</time>

@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Rose Ames">
-    <title>30 Failures in 30 Days | Superluser</title>
+    <title>Starting with a Bang | Superluser</title>
     
             <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-      <link rel="canonical" href="http://rose.github.io/posts/30-failures-in-30-days/">
+      <link rel="canonical" href="http://rose.github.io/posts/starting-with-a-bang/">
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
     <![endif]-->
@@ -50,7 +50,7 @@
                 
                     
     <li>
-    <a href="../../posts/30-failures-in-30-days/index.rst" id="sourcelink">Source</a>
+    <a href="../../posts/starting-with-a-bang/index.rst" id="sourcelink">Source</a>
     </li>
 
             </ul>
@@ -68,11 +68,11 @@
     <article class="postbox post-text">
     <div class="h-entry" itemscope="itemscope" itemtype="http://schema.org/Article">
     
-    <h1 class="p-name" itemprop="headline name">30 Failures in 30 Days</h1>
+    <h1 class="p-name" itemprop="headline name">Starting with a Bang</h1>
 
     <hr>
     <small>
-        Posted: <time class="published dt-published" datetime="2014-11-01T18:07:19+00:00" itemprop="datePublished">2014-11-01 18:07</time>
+        Posted: <time class="published dt-published" datetime="2014-11-02T10:13:30+00:00" itemprop="datePublished">2014-11-02 10:13</time>
         
 
         
@@ -80,36 +80,75 @@
     </small>
     <hr>
     <div class="e-content" itemprop="articleBody text">
-    <div><p>I like writing, I like programming, I like writing about programming.  So why haven't I been blogging?</p>
-<p>You have to understand that I did not always enjoy writing.  The key, as is so often the case, lies in the brain of my eight-year-old self.</p>
-<p>I had been reading intensively since I was 4, and the first few times I tried to put a story down on paper were absolutely horrifying.  I could see the vast gulf between what I had produced and what I would be willing to consume, but I didn't have the skills or maturity to bridge that gulf.  The constant gold stars and head patting I got in math were much more appealing, so I decided that writing was not a thing I was going to do.</p>
-<p>And I was stubborn enough to get away with this for a long time.  Teachers don't always like stubborn kids, but they <em>love</em> quiet kids who get excited about books.</p>
-<!-- TEASER_END -->
-<p>Up until grade 10 I bluffed my way into passing english grades without actually handing in any writing.  I failed grade 10 english on the first try, squeaked through on the second, and then dropped out, largely to avoid grade 11 english (also death threats and wearing shoes, but those are separate stories.  And seriously, it was mostly the english).</p>
-<p>I subsequently, with much fury and agony which I'll spare you here, came around to the view that writing was a desirable skill, and, with further fury and agony, managed to acquire it.  In particular, I've gotten fairly comfortable with two styles of writing:  Very Serious Official Wordage, and talking to friends.</p>
-<p>Unfortunately, a programming blog doesn't really fit into either of those categories.  Certainly VSOW does not enjoy a lot of respect or admiration in the programming community, and anyhow it's not much fun to write.</p>
-<p>But the context is semi-professional - I get the impression that blogs are more important than resumes in some circles.  Given that I do plan on looking for a job at some point, it would hardly be appropriate to fill this up with cheesy jokes, obscenity, and moping about my perceived failures (i.e. pretty much everything I do), which rules out about 90% of the writing I inflict on my friends.</p>
-<p>Such was my thinking, anyway.  It's classic perfectionism:</p>
-<ul class="simple">
-<li>This is an important thing that I value a lot</li>
-<li>Therefore I should do it perfectly</li>
-<li>I'm not sure I can do it perfectly</li>
-<li>Therefore I won't do it at all</li>
-<li>???</li>
-<li>Profit</li>
-</ul>
-<p>This chain of thought pops up in my life all the time, and I am constantly trying to smack it down, like a psychological game of whack-a-mole.</p>
-<p>So.  I am officially giving myself permission to write imperfect blog posts.  They can be short, or unpolished, or cheesy, or meandering, or inappropriate, or all of the above.  Which is good, because I have decided to post something every day for the month of November.</p>
-<p>Every single one of these 30 posts will be a wretched failure, and I hope you enjoy them.  I know I will.</p></div>
+    <div><p>You don't use a linux system for long without learning about !!.  It's handy in situations like this:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"I'm king of the world!"</span> &gt;/etc/fstab
+lolwutno
+<span class="nv">$ </span>sudo !! <span class="c"># DO NOT ACTUALLY DO THIS
+</span>sudo <span class="nb">echo</span> <span class="s2">"I'm king of the world!"</span> &gt;/etc/fstab
+pswdplz:
+okfinewtvr
+</pre>
+<p>But history expansion can do much more than repeat the last command.</p>
+<p>You can retrieve any command from your history:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span><span class="nb">history</span>
+...
+502 <span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+503 ls
+504 touch yesyouare
+505 <span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+506 ls
+507 <span class="nb">cd</span> /etc
+<span class="nv">$ </span>!-3 <span class="c"># !! is the last command, !-2 is the command before that, and so on
+</span><span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+I<span class="err">'</span>m king of the world
+<span class="nv">$ </span>sudo !504
+sudo touch yesyouare
+</pre>
+<p>But it's often easier to search for the last command that started with a given string:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>!echo
+<span class="nb">echo</span> <span class="s2">"I'm king of the world"</span>
+I<span class="err">'</span>m king of the world
+<span class="nv">$ </span>!v
+vim ~/reasons_I_need_a_psychiatrist
+</pre>
+<p>These are simple string substitutions - bash replaces !! with the characters of your last command, then executes the resulting command.  So with !! and the numerical operators you can do stuff like:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>vim dave
+dave<span class="s1">'s not here
+$ ls
+dave.py
+$ !-2.py # !vim.py would look for a command beginning with '</span>vim.py<span class="err">'</span>
+vim dave.py
+</pre>
+<p>You can also extract parts of commands!  The one I use most is !$ for the last argument:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>ls some/godawful/long/path/probably/from/a/java/project/
+file.txt    otherstuff.java
+<span class="nv">$ </span>vim !<span class="nv">$file</span>.txt
+vim some/godawful/long/path/probably/from/a/java/project/file.txt
+</pre>
+<p>You can also get all the arguments, or just the first one:</p>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>touch foo bar baz <span class="c"># whoops, I'm in the wrong directory
+</span><span class="nv">$ </span>mv !* projects/foobar
+mv foo bar baz projects/foobar
+</pre>
+<pre class="code bash literal-block">
+<span class="nv">$ </span>cp /boot/initramfs-linux.img ~/backupdir
+<span class="nv">$ </span>sudo vim !^
+sudo vim /boot/initramfs-linux.img <span class="c"># I've got a GREAT idea!</span>
+</pre>
+<p>There's more, but I'll stop here for now.</p>
+<p>You can go pretty far with only a very basic understanding of bash, but shells are actually very interesting tools that will help you more if you give them a chance.  If you spend a lot of time on the command line, it's well worth the learning curve.</p></div>
     </div>
     </div>
     
         <ul class="pager">
             <li class="previous">
-                <a href="../../posts/incremental-complexity/" rel="prev">← Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../../posts/starting-with-a-bang/" rel="next">Next post →</a>
+                <a href="../../posts/30-failures-in-30-days/" rel="prev">← Previous post</a>
             </li>
         </ul>
 
@@ -118,9 +157,9 @@
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="superluser",
-            disqus_url="http://rose.github.io/posts/30-failures-in-30-days/",
-        disqus_title="30 Failures in 30 Days",
-        disqus_identifier="cache/posts/30-failures-in-30-days.html",
+            disqus_url="http://rose.github.io/posts/starting-with-a-bang/",
+        disqus_title="Starting with a Bang",
+        disqus_identifier="cache/posts/starting-with-a-bang.html",
         disqus_config = function () {
             this.language = "en";
         };
