@@ -19,6 +19,8 @@ You don't use a linux system for long without learning about !!.  It's handy in 
 
 But history expansion can do much more than repeat the last command.
 
+.. TEASER_END
+
 You can retrieve any command from your history:
 
 .. code:: bash

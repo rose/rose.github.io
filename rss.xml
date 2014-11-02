@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link rel="self" type="application/rss+xml" href="http://rose.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sun, 02 Nov 2014 11:44:27 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Starting with a Bang</title><link>http://rose.github.io/posts/starting-with-a-bang/</link><description>&lt;div&gt;&lt;p&gt;You don't use a linux system for long without learning about !!.  It's handy in situations like this:&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link href="http://rose.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 02 Nov 2014 11:46:53 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Starting with a Bang</title><link>http://rose.github.io/posts/starting-with-a-bang/</link><description>&lt;div&gt;&lt;p&gt;You don't use a linux system for long without learning about !!.  It's handy in situations like this:&lt;/p&gt;
 &lt;pre class="code bash literal-block"&gt;
 &lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"I'm king of the world!"&lt;/span&gt; &amp;gt;/etc/fstab
 lolwutno
@@ -9,59 +9,7 @@ pswdplz:
 okfinewtvr
 &lt;/pre&gt;
 &lt;p&gt;But history expansion can do much more than repeat the last command.&lt;/p&gt;
-&lt;p&gt;You can retrieve any command from your history:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;history&lt;/span&gt;
-...
-502 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"I'm king of the world"&lt;/span&gt;
-503 ls
-504 touch yesyouare
-505 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"I'm king of the world"&lt;/span&gt;
-506 ls
-507 &lt;span class="nb"&gt;cd&lt;/span&gt; /etc
-&lt;span class="nv"&gt;$ &lt;/span&gt;!-3 &lt;span class="c"&gt;# !! is the last command, !-2 is the command before that, and so on
-&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"I'm king of the world"&lt;/span&gt;
-I&lt;span class="err"&gt;'&lt;/span&gt;m king of the world
-&lt;span class="nv"&gt;$ &lt;/span&gt;sudo !504
-sudo touch yesyouare
-&lt;/pre&gt;
-&lt;p&gt;But it's often easier to search for the last command that started with a given string:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;!echo
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"I'm king of the world"&lt;/span&gt;
-I&lt;span class="err"&gt;'&lt;/span&gt;m king of the world
-&lt;span class="nv"&gt;$ &lt;/span&gt;!v
-vim ~/reasons_I_need_a_psychiatrist
-&lt;/pre&gt;
-&lt;p&gt;These are simple string substitutions - bash replaces !! with the characters of your last command, then executes the resulting command.  So with !! and the numerical operators you can do stuff like:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;vim dave
-dave&lt;span class="s1"&gt;'s not here
-$ ls
-dave.py
-$ !-2.py # !vim.py would look for a command beginning with '&lt;/span&gt;vim.py&lt;span class="err"&gt;'&lt;/span&gt;
-vim dave.py
-&lt;/pre&gt;
-&lt;p&gt;You can also extract parts of commands!  The one I use most is !$ for the last argument:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;ls some/godawful/long/path/probably/from/a/java/project/
-file.txt    otherstuff.java
-&lt;span class="nv"&gt;$ &lt;/span&gt;vim !&lt;span class="nv"&gt;$file&lt;/span&gt;.txt
-vim some/godawful/long/path/probably/from/a/java/project/file.txt
-&lt;/pre&gt;
-&lt;p&gt;You can also get all the arguments, or just the first one:&lt;/p&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;touch foo bar baz &lt;span class="c"&gt;# whoops, I'm in the wrong directory
-&lt;/span&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;mv !* projects/foobar
-mv foo bar baz projects/foobar
-&lt;/pre&gt;
-&lt;pre class="code bash literal-block"&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;cp /boot/initramfs-linux.img ~/backupdir
-&lt;span class="nv"&gt;$ &lt;/span&gt;sudo vim !^
-sudo vim /boot/initramfs-linux.img &lt;span class="c"&gt;# I've got a GREAT idea!&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;There's more, but I'll stop here for now.&lt;/p&gt;
-&lt;p&gt;You can go pretty far with only a very basic understanding of bash, but shells are actually very interesting tools that will help you more if you give them a chance.  If you spend a lot of time on the command line, it's well worth the learning curve.&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/starting-with-a-bang/</guid><pubDate>Sun, 02 Nov 2014 10:13:30 GMT</pubDate></item><item><title>30 Failures in 30 Days</title><link>http://rose.github.io/posts/30-failures-in-30-days/</link><description>&lt;div&gt;&lt;p&gt;I like writing, I like programming, I like writing about programming.  So why haven't I been blogging?&lt;/p&gt;
+&lt;p class="more"&gt;&lt;a href="http://rose.github.io/posts/starting-with-a-bang/"&gt;Read more…&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/starting-with-a-bang/</guid><pubDate>Sun, 02 Nov 2014 10:13:30 GMT</pubDate></item><item><title>30 Failures in 30 Days</title><link>http://rose.github.io/posts/30-failures-in-30-days/</link><description>&lt;div&gt;&lt;p&gt;I like writing, I like programming, I like writing about programming.  So why haven't I been blogging?&lt;/p&gt;
 &lt;p&gt;You have to understand that I did not always enjoy writing.  The key, as is so often the case, lies in the brain of my eight-year-old self.&lt;/p&gt;
 &lt;p&gt;I had been reading intensively since I was 4, and the first few times I tried to put a story down on paper were absolutely horrifying.  I could see the vast gulf between what I had produced and what I would be willing to consume, but I didn't have the skills or maturity to bridge that gulf.  The constant gold stars and head patting I got in math were much more appealing, so I decided that writing was not a thing I was going to do.&lt;/p&gt;
 &lt;p&gt;And I was stubborn enough to get away with this for a long time.  Teachers don't always like stubborn kids, but they &lt;em&gt;love&lt;/em&gt; quiet kids who get excited about books.&lt;/p&gt;
