@@ -8,7 +8,7 @@
 
 You don't use a linux system for long without learning about !!.  It's handy in situations like this:
 
-.. code:: bash
+.. code:: console
 
   $ echo "I'm king of the world!" >/etc/fstab
   lolwutno
@@ -23,7 +23,7 @@ But history expansion can do much more than repeat the last command.
 
 You can retrieve any command from your history:
 
-.. code:: bash
+.. code:: console
 
   $ history
   ...
@@ -41,7 +41,7 @@ You can retrieve any command from your history:
 
 But it's often easier to search for the last command that started with a given string:
 
-.. code:: bash
+.. code:: console
 
   $ !echo
   echo "I'm king of the world"
@@ -51,7 +51,7 @@ But it's often easier to search for the last command that started with a given s
 
 These are simple string substitutions - bash replaces !! with the characters of your last command, then executes the resulting command.  So with !! and the numerical operators you can do stuff like:
 
-.. code:: bash
+.. code:: console
 
   $ vim dave
   dave's not here
@@ -62,22 +62,32 @@ These are simple string substitutions - bash replaces !! with the characters of 
 
 You can also extract parts of commands!  The one I use most is !$ for the last argument:
 
-.. code:: bash
+.. code:: console
 
-  $ ls some/godawful/long/path/probably/from/a/java/project/
+  $ ls some/godawful/long/path/probably/from/a/java/project
   file.txt    otherstuff.java
-  $ vim !$file.txt
+  $ vim !$/file.txt
   vim some/godawful/long/path/probably/from/a/java/project/file.txt
+
+Note that we can combine this with the line selectors to get the last argument of an earlier command:
+
+.. code:: console
+
+  $ curl www.sexyponies.com/totally/innocent/equestrian_movie.mp4
+  [file dumped to console]
+  $ man curl
+  $ curl -O !-2$
+  curl -O www.sexyponies.com/totally/innocent/equestrian_movie.mp4
 
 You can also get all the arguments, or just the first one:
 
-.. code:: bash
+.. code:: console
 
   $ touch foo bar baz # whoops, I'm in the wrong directory
   $ mv !* projects/foobar
   mv foo bar baz projects/foobar
 
-.. code:: bash
+.. code:: console
 
   $ cp /boot/initramfs-linux.img ~/backupdir
   $ sudo vim !^
