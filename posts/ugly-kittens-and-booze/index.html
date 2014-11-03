@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rose Ames">
+    <title>Ugly Kittens and Booze | Superluser</title>
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+      <link rel="canonical" href="http://rose.github.io/posts/ugly-kittens-and-booze/">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+    
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+</head>
+<body>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid"><!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">Superluser</a>
+        </div><!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../../archive.html">Archives</a>
+                </li><li><a href="../../categories/index.html">Tags</a>
+                </li><li><a href="../../rss.xml">RSS</a>
+
+            </li></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/ugly-kittens-and-booze/index.rst" id="sourcelink">Source</a>
+    </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+    <article class="postbox post-text">
+    <div class="h-entry" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <h1 class="p-name" itemprop="headline name">Ugly Kittens and Booze</h1>
+
+    <hr>
+    <small>
+        Posted: <time class="published dt-published" datetime="2014-11-03T07:41:26+00:00" itemprop="datePublished">2014-11-03 07:41</time>
+        
+
+        
+
+    </small>
+    <hr>
+    <div class="e-content" itemprop="articleBody text">
+    <div><p>They say life is what happens while you're busy making other plans, and so it is in programming.</p>
+<p>I've spent my time as a programmer merrily bouncing from language to language ("Forth!  Oooh, Haskell... no, assembly!").  But in the meantime, Python was casually easing its way more and more into my brain and fingers.  So many moocs require it, so many blog posts use it for examples, so many of my friends know it.  Over the last few months I've resigned myself to the fact that it has become my strongest language.</p>
+<p>I don't mean to sound unkind.  Python's a fine language.  It's the vodka of programming languages - powerful, convenient, mixes well with a lot of things.  If Point B is processed data and a lampshade on your head, Python and vodka will get you there.  But I can't shake the feeling that they're both a little <em>bland</em>.</p>
+<!-- TEASER_END -->
+<div class="section" id="the-flavour-of-a-language">
+<h2>The Flavour of a Language</h2>
+<p>I've spent a little time <a class="footnote-reference" href="../../posts/ugly-kittens-and-booze/#id7" id="id1">[1]</a> thinking about what gives a programming language its flavour.</p>
+<p>Building a compiler is a <em>lot</em> of work.  Anyone who says they built one just for fun is talking about a toy - nothing wrong with that, I look forward to doing it someday myself, but it has little to do with how popular programming languages were created.  A serious language project starts because someone feels that they can make something significantly superior to all existing languages along some dimension. <a class="footnote-reference" href="../../posts/ugly-kittens-and-booze/#id8" id="id2">[2]</a></p>
+<p>The dimension of a language - the itch that it's meant to scratch - will determine both its initial design and how it evolves over the years.</p>
+</div>
+<div class="section" id="so-what-s-python-s-dimension">
+<h2>So What's Python's Dimension?</h2>
+<p>There's one way to do it... eh, kinda.  In Masterminds of Programming, <a class="footnote-reference" href="../../posts/ugly-kittens-and-booze/#id9" id="id3">[3]</a> Guido points out this phrase was coined some years after Python was created, and describes it as "in most cases a white lie." (p.31)</p>
+<p>He says he created it for professional *nix programmers (26) in situations "where C was overkill and shell scripts became too cumbersome." (29)</p>
+<p>"I don't believe there should be a clear distinction between prototyping and 'production' languages.  ... A common process is that a simple application gradually acquires more functionality ... and there is never a precise cutover point from prototype to final application." (29)</p>
+<p>In other words, he wanted a language that was simple enough to smash out a quick script in (like bash or perl), but that would provide the abstractions necessary to make large applications manageable (like C++ <a class="footnote-reference" href="../../posts/ugly-kittens-and-booze/#id10" id="id4">[4]</a>).  That was to be Python's killer feature.</p>
+<p>This was (and is) achieved by an aggressive process of exclusion.  When asked about adding new features, he talks at length of the "lines of defence" that he uses to keep those features away from the core language. (20)</p>
+<p>Some other relevant quotes:</p>
+<ul class="simple">
+<li>"Python is about having the simplest, dumbest compiler imaginable." (26)</li>
+<li>"If the syntax is so ambiguous that it takes really advanced ... technology to figure it out, then human readers are probably confused half the time as well." (33)</li>
+<li>"You don't [debug a language design].  You won't find the bugs in the language definition until you have so many users that it's too late to change things." (20)</li>
+<li>"There's no feature that you can hide so well that most people don't need to know about [it].  Sooner or later ... they'll encounter some obscure corner case where they have to learn about it because things don't work the way they expected." (21)</li>
+</ul>
+<p>The common theme here is simplicity.  Instead of optimizing for performance, or a particular field, or a particular scale, Python was designed to maintain reasonable simplicity over a broad range of fields and scales.  And finally, we've gotten to the heart of my hesitation over it.</p>
+</div>
+<div class="section" id="ok-whatever-where-are-the-kittens">
+<h2>Ok, Whatever.  Where are the Kittens?</h2>
+<p>Glad you asked!</p>
+<p>When I was a kid we had cats, and the cats frequently had baby cats. <a class="footnote-reference" href="../../posts/ugly-kittens-and-booze/#id11" id="id5">[5]</a></p>
+<p>Kids have a real fascination with ranking anything they can get their hands on.  Remember making lists of your 'best' and 'worst' friends/songs/foods/numbers? <a class="footnote-reference" href="../../posts/ugly-kittens-and-booze/#id12" id="id6">[6]</a>  Well, we spent a great deal of energy arguing about which kitten was the best.  The winner's reward was intensive mauling by a dozen clumsy snot-covered 6-year-old hands, which may explain the kittens' general lack of enthusiasm for these competitions.  But we took them very seriously indeed.</p>
+<p>Popular opinion was generally divided between two forms: sleek-black and fluffy-white.  If pure versions of these were unavailable, gray kittens could easily take the lead regardless of their hair length.  Tortoiseshells would often get a vote or two, as would black and white spotted with interesting patterns.</p>
+<p>After that it was all downhill.</p>
+<p>Spotted cats were tolerable if they were healthy and active and it wasn't your turn with the cute ones.  The existence of tabbies was acknowledged, barely, provided they demonstrated the minimal consideration of not being orange.  The orange ones and the runts were humourous props, over which the more worthy kittens could drape themselves adorably before falling asleep.</p>
+</div>
+<div class="section" id="and-then-there-was-me">
+<h2>... And Then There Was Me</h2>
+<p>I always voted for, and subsequently fell in love with, the orangest, runtiest kitten in any given litter.  Bonus points for mewling incessantly, limping, and having one eye sealed shut with pus.  I don't really know why.  Certainly it didn't make me any more popular.  Some combination of perversity, maternal instinct, and budding hipsterism, I suppose.</p>
+<p>In any case, this taste seems to have carried itself over to programming languages.</p>
+<p>When you read that Perl has dynamic scoping, or C will casually overwrite your function's return value if you look at a buffer funny, or about <a class="reference external" href="http://programmers.stackexchange.com/questions/227756/why-is-phps-method-of-comparing-different-types-bad">php</a> and <a class="reference external" href="http://bonsaiden.github.io/JavaScript-Garden/#types">javascript</a>'s <em>truly</em> whimsical comparison methods, or pretty much anything about C++, your first thought is probably something like "Dear God why??"  Mine is, "Awww..."</p>
+<p>Now, liking orange cats isn't so bad.  As an adult, at least, it does not seem to have reduced my life satisfaction.  But loving the sickly runts, that's a heartbreak waiting to happen.  And I walked into that heartbreak, over and over and over again, despite how much easier it would have been to just agree with the other kids.</p>
+<p>Let's give Guido the mic again: (on the fundamental concept necessary to be a good Python programmer) "I would say pragmatism... Python is good if you're an instant gratification junkie like myself." (30)</p>
+<p>That's not me.  I'm not sure it ever will be.</p>
+</div>
+<div class="section" id="can-i-have-a-more-cheerful-ending">
+<h2>Can I Have a More Cheerful Ending?</h2>
+<p>Sure!  How's this?</p>
+<p>Part of growing up is losing your obsession over 'best' and 'worst', and developing the ability to appreciate things on their own merits.  I'm still a whisky girl, but if my professional life requires me to drink a flask of vodka and play with fluffy kittens, well, I'll suck it up and do my best.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/ugly-kittens-and-booze/#id1">[1]</a></td><td>probably still too much</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/ugly-kittens-and-booze/#id2">[2]</a></td><td>How it becomes popular is another story entirely.  Not all serious projects become popular, but it's a safe bet that most popular languages started as serious projects (with the notable exception of javascript).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/ugly-kittens-and-booze/#id3">[3]</a></td><td>O'Reilly, 2009.  And apparently the second hand copy I bought is illegal for sale outside of India and Africa, which makes me a dashing outlaw, I guess?</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/ugly-kittens-and-booze/#id4">[4]</a></td><td>Python is <em>4 years older</em> than Java; they came out in 1991 and 1995 respectively.  I know, right?</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/ugly-kittens-and-booze/#id5">[5]</a></td><td>My brother and I, and other kids in the neighbourhood, were considerably more enthusiastic about this than my mother was</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/ugly-kittens-and-booze/#id6">[6]</a></td><td>Maybe that was just me.  But seriously, 7 can go fuck itself.</td></tr>
+</tbody>
+</table>
+</div></div>
+    </div>
+    </div>
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/starting-with-a-bang/" rel="prev">← Previous post</a>
+            </li>
+        </ul>
+
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/ugly-kittens-and-booze/",
+        disqus_title="Ugly Kittens and Booze",
+        disqus_identifier="cache/posts/ugly-kittens-and-booze.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    
+
+    </article>
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js" type="text/javascript"></script>
+
+
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul><li><a class="addthis_button_facebook"></a>
+</li><li><a class="addthis_button_google_plusone_share"></a>
+</li><li><a class="addthis_button_linkedin"></a>
+</li><li><a class="addthis_button_twitter"></a>
+</li></ul>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+</body>
+</html>
