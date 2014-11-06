@@ -16,9 +16,9 @@ We were talking about Michael Spencer's `brilliant Python limerick <http://nedba
 
 .. code:: c
 
-  #include stdio.h
+  #include <stdio.h>
   void
-  main { printf( // now the poem is deployed
+  main () { printf( // now the poem is deployed
   "Well it may not be \nKeats, \
   but it hits all the beats \n\
   Great, I surely am\n"); } // just overjoyed.

@@ -85,12 +85,13 @@
 <!-- TEASER_END -->
 <p>We were talking about Michael Spencer's <a class="reference external" href="http://nedbatchelder.com/blog/200503/python_limericks.html">brilliant Python limerick</a>, and they challenged me to write a limerick, in C, which when compiled &amp; run prints out a haiku.  Here's what I came up with:</p>
 <pre class="code c literal-block">
-<span class="cp">#include stdio.h
+<span class="cp">#include &lt;stdio.h&gt;
 </span><span class="kt">void</span>
-<span class="n">main</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span> <span class="c1">// now the poem is deployed
+<span class="nf">main</span> <span class="p">()</span> <span class="p">{</span> <span class="n">printf</span><span class="p">(</span> <span class="c1">// now the poem is deployed
 </span><span class="s">"Well it may not be </span><span class="se">\n</span><span class="s">Keats, \
 but it hits all the beats </span><span class="se">\n</span><span class="s">\
-Great, I surely am</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span> <span class="c1">// just overjoyed.</span>
+Great, I surely am</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="p">}</span> <span class="c1">// just overjoyed.
+</span>
 </pre>
 <p>Now, in this kind of thing you could debate which items should be pronounced and which left out.  I think my choices are defensible but not the only ones possible.  If you need a hand, it's meant to read like this:</p>
 <pre class="code literal-block">
