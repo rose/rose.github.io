@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rose Ames">
+    <title>In Which I Mind the Gap | Superluser</title>
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+      <link rel="canonical" href="http://rose.github.io/posts/in-which-i-mind-the-gap/">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+    
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+</head>
+<body>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid"><!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">Superluser</a>
+        </div><!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../../archive.html">Archives</a>
+                </li><li><a href="../../categories/index.html">Tags</a>
+                </li><li><a href="../../rss.xml">RSS</a>
+
+            </li></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/in-which-i-mind-the-gap/index.rst" id="sourcelink">Source</a>
+    </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+    <article class="postbox post-text">
+    <div class="h-entry" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <h1 class="p-name" itemprop="headline name">In Which I Mind the Gap</h1>
+
+    <hr>
+    <small>
+        Posted: <time class="published dt-published" datetime="2014-11-05T20:27:01+00:00" itemprop="datePublished">2014-11-05 20:27</time>
+        
+
+        
+
+    </small>
+    <hr>
+    <div class="e-content" itemprop="articleBody text">
+    <div><p>Oooh, a filler post consisting almost entirely of a <a class="reference external" href="http://zenpencils.com/comic/90-ira-glass-advice-for-beginners/">link</a> to an inspirational quote about why it bothers me to do a filler post consisting almost entirely of a link to an inspirational quote.  Meta!</p>
+<p>A week ago I had my first patch rejected.  Not "oh we'll need a few changes" rejected; we're talking actual, outright "we do not want this code" rejected.  Ouch.</p>
+<!-- TEASER_END -->
+<p>The patch was for Zaqar, the queueing service for OpenStack.  It involved modifying __getattr__ on a base class to allow the elimination of similar methods in its child classes.  Not a big thing, but the methods were just different enough to make it non-trivial; plus it was my first time working with OpenStack, and also the first bug I've tried that wasn't explicitly marked as 'easy' or otherwise appropriate for beginners. <a class="footnote-reference" href="../../posts/in-which-i-mind-the-gap/#id3" id="id1">[1]</a></p>
+<p>Boy, did I feel good when I got that sucker working.  Net reduction of nearly 100 lines, booyah!  When someone on irc described my work as 'impressive' I did not object.  Oh hi, yeah, I'm an OpenStack developer.  You know, the impressive one?</p>
+<p>And yet... it was kinda hard to read.</p>
+<p>That wasn't my problem though - I mean, they wanted it, and I gave it to them, so I was doing them a favour, right?  They knew what they were doing.  During the review process I added enough comments to make it comprehensible (cutting the line savings in half).</p>
+<p>And just when it looked like it was about to be merged, another developer came and said what I had been uneasily thinking.  This is code is complicated.  It's magic.  Anyone looking at these classes in the future will waste many brain cycles trying to understand something which ought to be simple.  And if it ever needs to be modified... he was tactful, but the message was clear.  After some back and forth on irc they decided that no amount of tweaking was going to make this patch usable.</p>
+<p>This was not easy to hear.  And yet, part of me was relieved.  I <em>know</em> that my skills need work, but I have faith in my taste, and that faith was a little shaken by seeing experienced developers get excited about code that smelled <a class="footnote-reference" href="../../posts/in-which-i-mind-the-gap/#id4" id="id2">[2]</a> a little off to me.  While it was a rejection of my work, it was also a vindication of my taste.</p>
+<p>This is a huge change in attitude for me.  There was a time, not so long ago, when I would have been crushed.</p>
+<p>I guess I'm telling this story for people who are still in that boat.  Blogs are not diaries - they're conscious, professional presentations, and the endless stream of successes in your RSS feed is a reflection of that.  For every success they print in red, there are 20 undocumented failures (and probably a catastrophe or two).  This can give you the impression that you're the only one struggling.</p>
+<p>There will be a time, perhaps not long from now, when I write a chirpy post about my first contribution to OpenStack.  I won't apologize for that, but I will link back to this one.</p>
+<p>If self-confidence is a struggle for you, please go read the <a class="reference external" href="http://zenpencils.com/comic/90-ira-glass-advice-for-beginners/">comic</a> I linked above, and start being proud of your taste.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/in-which-i-mind-the-gap/#id1">[1]</a></td><td><a class="reference external" href="https://bugs.launchpad.net/zaqar/+bug/1351462">bug</a>, <a class="reference external" href="https://review.openstack.org/#/c/129109/2/zaqar/queues/storage/pooling.py">final patch</a>, in case you're curious.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/in-which-i-mind-the-gap/#id2">[2]</a></td><td>this is not a mixed analogy, because taste is mostly smell.  So there.</td></tr>
+</tbody>
+</table></div>
+    </div>
+    </div>
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/bad-code-should-read-like-poetry/" rel="prev">← Previous post</a>
+            </li>
+        </ul>
+
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/in-which-i-mind-the-gap/",
+        disqus_title="In Which I Mind the Gap",
+        disqus_identifier="cache/posts/in-which-i-mind-the-gap.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    
+
+    </article>
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js" type="text/javascript"></script>
+
+
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul><li><a class="addthis_button_facebook"></a>
+</li><li><a class="addthis_button_google_plusone_share"></a>
+</li><li><a class="addthis_button_linkedin"></a>
+</li><li><a class="addthis_button_twitter"></a>
+</li></ul>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+</body>
+</html>
