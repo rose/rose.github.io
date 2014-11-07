@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Rose Ames">
+    <title>Methodical Bondage | Superluser</title>
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+      <link rel="canonical" href="http://rose.github.io/posts/methodical-bondage/">
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+    
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+</head>
+<body>
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid"><!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">Superluser</a>
+        </div><!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li><a href="../../archive.html">Archives</a>
+                </li><li><a href="../../categories/index.html">Tags</a>
+                </li><li><a href="../../rss.xml">RSS</a>
+
+            </li></ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/methodical-bondage/index.rst" id="sourcelink">Source</a>
+    </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+    <article class="postbox post-text">
+    <div class="h-entry" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <h1 class="p-name" itemprop="headline name">Methodical Bondage</h1>
+
+    <hr>
+    <small>
+        Posted: <time class="published dt-published" datetime="2014-11-06T16:34:45+00:00" itemprop="datePublished">2014-11-06 16:34</time>
+        
+
+        
+
+    </small>
+    <hr>
+    <div class="e-content" itemprop="articleBody text">
+    <div><p>I mentioned a couple days ago that I look forward to writing a compiler 'someday'.  Well, in the spirit of Failure Month, let's lower our sights enough that we can s/some/to.  Let's just see how much of a class system we can put together.  In this post, we'll get method binding working properly, and in a future one we'll look at inheritance.</p>
+<p>To avoid muddying the waters with the implementation language's classes, we'll use one that doesn't have any - javascript.  We'll avoid the dark corners &amp; just work with functions and hash tables, so if you know any scripting language you should be able to follow this fine. <a class="footnote-reference" href="../../posts/methodical-bondage/#id4" id="id1">[1]</a></p>
+<p>Let's start without methods, and just get attribute lookups happening.  We want to build the backend compilery bits that implement this sort of functionality:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span> <span class="c"># make a class</span>
+  <span class="n">boop</span> <span class="o">=</span> <span class="mi">3</span> <span class="c"># instances of this class have an attribute boop, which by default is 3</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>  <span class="c"># make an instance of the class</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span> <span class="c"># and another one</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">boop</span> <span class="o">=</span> <span class="mi">7</span> <span class="c"># set f's attribute boop to 7</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">boop</span><span class="p">)</span> <span class="c"># get f's attribute boop, which is now 7</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">f2</span><span class="o">.</span><span class="n">boop</span><span class="p">)</span> <span class="c"># 3; f2's boop is undefined, so we get the class value, which is not changed</span>
+</pre>
+<p>We're not bothering with the frontend compilery bits, so we won't have that nice syntax to work with.  Instead, we'll test by calling the backend functions directly in javascript.  So the equivalent of the code above will look something like:</p>
+<pre class="code javascript literal-block">
+<span class="kd">var</span> <span class="nx">Foo</span> <span class="o">=</span> <span class="nx">make_class</span><span class="p">(</span><span class="p">{</span><span class="nx">boop</span><span class="o">:</span> <span class="mi">3</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">Foo</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">f2</span> <span class="o">=</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">Foo</span><span class="p">);</span>
+
+<span class="nx">set_attr</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="s1">'boop'</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+
+<span class="c1">// console.log is the javascript equivalent of print
+</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 7: "</span><span class="p">,</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="s1">'boop'</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 3: "</span><span class="p">,</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">f2</span><span class="p">,</span> <span class="s1">'boop'</span><span class="p">));</span>
+</pre>
+<p>After these functions are defined, then we can get to the good stuff.  Excited?</p>
+<!-- TEASER_END -->
+<p>We'll start with classes:</p>
+<pre class="code javascript literal-block">
+<span class="kd">function</span> <span class="nx">make_class</span><span class="p">(</span><span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">new_class</span> <span class="o">=</span> <span class="p">{</span><span class="p">};</span>
+  <span class="nx">new_class</span><span class="p">[</span><span class="s1">'attrs'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">attrs</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">new_class</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">cls</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">new_obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">};</span>
+  <span class="nx">new_obj</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">cls</span><span class="p">;</span>
+  <span class="nx">new_obj</span><span class="p">[</span><span class="s1">'attrs'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="p">};</span>
+  <span class="k">return</span> <span class="nx">new_obj</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+<p>Nothing exciting here.  Classes and objects both store a hash of attributes, and objects also have a reference back to their class.</p>
+<p>Now for get/set.  When we look for an attribute on an object, first we check if the object itself has it; if not, we check its class.  But setting attributes on an object should never touch the class attributes:</p>
+<pre class="code javascript literal-block">
+<span class="kd">function</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">attr_name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">attrs</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="s1">'attrs'</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">attr_name</span> <span class="k">in</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">attrs</span><span class="p">[</span><span class="nx">attr_name</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">obj</span><span class="p">[</span><span class="s1">'class'</span><span class="p">][</span><span class="s1">'attrs'</span><span class="p">][</span><span class="nx">attr_name</span><span class="p">];</span> <span class="c1">// javascript will return undefined if this doesn't exist
+</span><span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">set_attr</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">attr_name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">obj</span><span class="p">[</span><span class="s1">'attrs'</span><span class="p">][</span><span class="nx">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+<p>So far so good.  You can test this out on the sample code above if you want.</p>
+<p>Now we're ready for methods.  We'll define them as attributes that happen to be functions.  The only tricky bit is, a method needs access to the attributes of the object it was called on, but methods are defined before the object even exists!</p>
+<p>No worries, we just need to ensure that methods get their calling object passed in as the first argument. <a class="footnote-reference" href="../../posts/methodical-bondage/#id5" id="id2">[2]</a>  This is called binding the method, and it's less complicated than it sounds:</p>
+<pre class="code javascript literal-block">
+<span class="kd">function</span> <span class="nx">bind_method</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// unshift is like pushing, but onto the front of the array
+</span>    <span class="k">return</span> <span class="nx">method</span><span class="p">(</span><span class="nx">args</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+<p>See?  Instead of returning the original method, we're returning a function that adds the calling object to the front of its argument list, and calls the original method with that.  The description is more complicated than the code. <a class="footnote-reference" href="../../posts/methodical-bondage/#id6" id="id3">[3]</a></p>
+<p>Now we just need to change get_attr to use bind_method when the requested attribute is a function:</p>
+<pre class="code javascript literal-block">
+<span class="kd">function</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">attr_name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">ret</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">attrs</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="s1">'attrs'</span><span class="p">];</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">attr_name</span> <span class="k">in</span> <span class="nx">attrs</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ret</span> <span class="o">=</span> <span class="nx">attrs</span><span class="p">[</span><span class="nx">attr_name</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">ret</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="s1">'class'</span><span class="p">][</span><span class="s1">'attrs'</span><span class="p">][</span><span class="nx">attr_name</span><span class="p">];</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'function'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">ret</span> <span class="o">=</span> <span class="nx">bind_method</span><span class="p">(</span><span class="nx">ret</span><span class="p">,</span> <span class="nx">obj</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">ret</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+<p>Again, if you're playing along at home, you can test it out.  The following code...</p>
+<pre class="code javascript literal-block">
+<span class="kd">var</span> <span class="nx">Bar</span> <span class="o">=</span> <span class="nx">make_class</span> <span class="p">(</span><span class="p">{</span>
+  <span class="s2">"bam"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+  <span class="s2">"x_plus_bam"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">return</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="s1">'bam'</span><span class="p">)</span> <span class="o">+</span> <span class="nx">x</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">Bar</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">bound_method</span> <span class="o">=</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="s2">"x_plus_bam"</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 13: "</span><span class="p">,</span> <span class="nx">bound_method</span><span class="p">(</span><span class="p">[</span><span class="mi">5</span><span class="p">]));</span>
+<span class="nx">set_attr</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="s1">'bam'</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 14: "</span><span class="p">,</span> <span class="nx">bound_method</span><span class="p">(</span><span class="p">[</span><span class="mi">5</span><span class="p">]));</span>
+</pre>
+<p>... is equivalent to:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Bar</span><span class="p">:</span>
+  <span class="n">bam</span> <span class="o">=</span> <span class="mi">8</span>
+  <span class="k">def</span> <span class="nf">x_plus_bam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bam</span> <span class="o">+</span> <span class="n">x</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">Bar</span><span class="p">()</span>
+<span class="n">bound_method</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">x_plus_bam</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">bound_method</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c"># 13</span>
+<span class="n">b</span><span class="o">.</span><span class="n">bam</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bound_method</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c"># 14</span>
+</pre>
+<p>Finally, now that we have methods, let's alter our instantiate_class function to take a list of arguments, and pass them on to the class's init method if it exists:</p>
+<pre class="code javascript literal-block">
+<span class="kd">function</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">cls</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">new_obj</span> <span class="o">=</span> <span class="p">{</span><span class="p">};</span>
+  <span class="nx">new_obj</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span> <span class="o">=</span> <span class="nx">cls</span><span class="p">;</span>
+  <span class="nx">new_obj</span><span class="p">[</span><span class="s1">'attrs'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">init</span> <span class="o">=</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">new_obj</span><span class="p">,</span> <span class="s1">'init'</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">init</span><span class="p">)</span> <span class="o">==</span> <span class="s1">'function'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">args</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">new_obj</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+<p>Note that we use getattr, so the new object is passed in as the first argument to init.  Thus defining an init function looks a lot like any other method:</p>
+<pre class="code javascript literal-block">
+<span class="kd">var</span> <span class="nx">Baz</span> <span class="o">=</span> <span class="nx">make_class</span> <span class="p">(</span><span class="p">{</span>
+  <span class="s2">"init"</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="nx">set_attr</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="s1">'yay'</span><span class="p">,</span> <span class="nx">num</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">baz</span> <span class="o">=</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">Baz</span><span class="p">,</span> <span class="p">[</span><span class="mi">42</span><span class="p">]);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 42: "</span><span class="p">,</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">baz</span><span class="p">,</span> <span class="s1">'yay'</span><span class="p">));</span>
+</pre>
+<p>All right, that was fun!  The code's <a class="reference external" href="https://github.com/rose/classes">up on github</a> if you want to play around with it.  Next code day we'll work on inheritance, and learn a little about MRO algorithms.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/methodical-bondage/#id1">[1]</a></td><td>I'm deliberately using a simplified version of javascript here.  {} is actually an object, it has properties other than the ones we define, and foo["blarg"] would often be written foo.blarg instead.  Javascript also has a very interesting inheritance system that is not based on classes at all.  I'm ignoring all that and using javascript objects as simple hash tables, so you shouldn't take this code as idiomatic.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/methodical-bondage/#id2">[2]</a></td><td>This is how Python does it.  A lot of other object oriented languages just have a keyword, like 'self' or 'this', which they put in scope by other means.  The basic idea, of referring to the object on which the method was called, is the same.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label"><col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="../../posts/methodical-bondage/#id3">[3]</a></td><td>Note that I'm assuming methods get exactly one array as their argument.  Remember, this is all internal compiler stuff - users of our language can pass however many arguments of whatever type they like, and we will put them into an array for our own use (or would, if we were building a whole compiler).</td></tr>
+</tbody>
+</table></div>
+    </div>
+    </div>
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/in-which-i-mind-the-gap/" rel="prev">← Previous post</a>
+            </li>
+        </ul>
+
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/methodical-bondage/",
+        disqus_title="Methodical Bondage",
+        disqus_identifier="cache/posts/methodical-bondage.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    
+
+    </article>
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js" type="text/javascript"></script>
+
+
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul><li><a class="addthis_button_facebook"></a>
+</li><li><a class="addthis_button_google_plusone_share"></a>
+</li><li><a class="addthis_button_linkedin"></a>
+</li><li><a class="addthis_button_twitter"></a>
+</li></ul>
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script type="text/javascript">jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    
+
+</body>
+</html>

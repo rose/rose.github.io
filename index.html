@@ -59,6 +59,51 @@
         <div class="row">
             
         <article class="postbox h-entry post-text">
+        <h1 class="p-name"><a href="posts/methodical-bondage/" class="u-url">Methodical Bondage</a>
+        <small>  
+             Posted: <time class="published dt-published" datetime="2014-11-06T16:34:45+00:00">2014-11-06 16:34</time>
+        </small></h1>
+        <hr>
+        <div class="p-summary">
+        <div><p>I mentioned a couple days ago that I look forward to writing a compiler 'someday'.  Well, in the spirit of Failure Month, let's lower our sights enough that we can s/some/to.  Let's just see how much of a class system we can put together.  In this post, we'll get method binding working properly, and in a future one we'll look at inheritance.</p>
+<p>To avoid muddying the waters with the implementation language's classes, we'll use one that doesn't have any - javascript.  We'll avoid the dark corners &amp; just work with functions and hash tables, so if you know any scripting language you should be able to follow this fine. <a class="footnote-reference" href="posts/methodical-bondage/#id4" id="id1">[1]</a></p>
+<p>Let's start without methods, and just get attribute lookups happening.  We want to build the backend compilery bits that implement this sort of functionality:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span> <span class="c"># make a class</span>
+  <span class="n">boop</span> <span class="o">=</span> <span class="mi">3</span> <span class="c"># instances of this class have an attribute boop, which by default is 3</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>  <span class="c"># make an instance of the class</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span> <span class="c"># and another one</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">boop</span> <span class="o">=</span> <span class="mi">7</span> <span class="c"># set f's attribute boop to 7</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">boop</span><span class="p">)</span> <span class="c"># get f's attribute boop, which is now 7</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">f2</span><span class="o">.</span><span class="n">boop</span><span class="p">)</span> <span class="c"># 3; f2's boop is undefined, so we get the class value, which is not changed</span>
+</pre>
+<p>We're not bothering with the frontend compilery bits, so we won't have that nice syntax to work with.  Instead, we'll test by calling the backend functions directly in javascript.  So the equivalent of the code above will look something like:</p>
+<pre class="code javascript literal-block">
+<span class="kd">var</span> <span class="nx">Foo</span> <span class="o">=</span> <span class="nx">make_class</span><span class="p">(</span><span class="p">{</span><span class="nx">boop</span><span class="o">:</span> <span class="mi">3</span><span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">Foo</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">f2</span> <span class="o">=</span> <span class="nx">instantiate_class</span><span class="p">(</span><span class="nx">Foo</span><span class="p">);</span>
+
+<span class="nx">set_attr</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="s1">'boop'</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+
+<span class="c1">// console.log is the javascript equivalent of print
+</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 7: "</span><span class="p">,</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="s1">'boop'</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This should be 3: "</span><span class="p">,</span> <span class="nx">get_attr</span><span class="p">(</span><span class="nx">f2</span><span class="p">,</span> <span class="s1">'boop'</span><span class="p">));</span>
+</pre>
+<p>After these functions are defined, then we can get to the good stuff.  Excited?</p>
+<p class="more"><a href="posts/methodical-bondage/">Read more…</a></p></div>
+        </div>
+            
+        
+    <p>
+        <a href="posts/methodical-bondage/#disqus_thread" data-disqus-identifier="cache/posts/methodical-bondage.html">Comments</a>
+
+
+        </p></article>
+        <article class="postbox h-entry post-text">
         <h1 class="p-name"><a href="posts/in-which-i-mind-the-gap/" class="u-url">In Which I Mind the Gap</a>
         <small>  
              Posted: <time class="published dt-published" datetime="2014-11-05T20:27:01+00:00">2014-11-05 20:27</time>
