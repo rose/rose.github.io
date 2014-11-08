@@ -50,7 +50,7 @@ I've experienced it myself:
 
 I am **not** making fun of the student in either of these stories.  They're both very intelligent people who happen to be meeting these ideas for the first time.  They're doing exactly what a learner should be doing - looking at the information they have, and using it to form hypotheses.  
 
-The failure is with me - I have used a mouse, captured chess pieces so many times, my brain has abstracted out the logic and registered it as a callback on the appropriate events.  I don't even remember the details any more, it just happens.  And that hinders my ability to teach.
+The failure is with me.  I have used a mouse and captured chess pieces so many times, my brain has abstracted out the logic and registered it as a callback on the appropriate events.  I don't even remember the details any more, it just happens.  And that hinders my ability to teach.
 
 Beginners need to spend time on details - that's the only way they can get their callbacks registered.  A skilled teacher can help them go through that process more quickly, but it can't be skipped.  
 
