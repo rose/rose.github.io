@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link href="http://rose.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 06 Nov 2014 22:24:20 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Methodical Bondage</title><link>http://rose.github.io/posts/methodical-bondage/</link><description>&lt;div&gt;&lt;p&gt;I mentioned a couple days ago that I look forward to writing a compiler 'someday'.  Well, in the spirit of Failure Month, let's lower our sights enough that we can s/some/to.  Let's just see how much of a class system we can put together.  In this post, we'll get method binding working properly, and in a future one we'll look at inheritance.&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link rel="self" href="http://rose.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 07 Nov 2014 22:40:01 GMT</lastBuildDate><generator>Nikola &lt;http://getnikola.com/&gt;</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Beginner Eye for the Expert Guy</title><link>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</link><description>&lt;div&gt;&lt;p&gt;When I first installed linux I went through a phase of starting everything from a terminal ("lookit me, I'm a hacker!"), and &lt;em&gt;every friggin one of them&lt;/em&gt; filled the screen with:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+Info:  Invalid doohickey.
+Warning:  Something bad is happening, just fyi.
+Attempting to recover... failed.
+Limping on valiantly.
+Warning:  Doohickey appears to be growing fangs.
+Warning:  Doohickey is attempting to
+DOOHICKEY:  YOAR COMPUTER ARE BELONGE TO ME NOW
+Info:  Emergency shunting from main loop in order to save humanity.  Tell my wife I love her.
+Thanks for using VLC!
+&lt;/pre&gt;
+&lt;p&gt;Watching those poor mutilated programs flailing helplessly away at each other in my RAM, I wondered how my computer could function at all.  Now, of course, I ignore the pathetic cries for help unless something actually goes wrong.&lt;/p&gt;
+&lt;p&gt;I think this transition explains the saying, "can do, can't teach".&lt;/p&gt;
+&lt;p class="more"&gt;&lt;a href="http://rose.github.io/posts/beginner-eye-for-the-expert-guy/"&gt;Read more…&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</guid><pubDate>Fri, 07 Nov 2014 10:09:54 GMT</pubDate></item><item><title>Methodical Bondage</title><link>http://rose.github.io/posts/methodical-bondage/</link><description>&lt;div&gt;&lt;p&gt;I mentioned a couple days ago that I look forward to writing a compiler 'someday'.  Well, in the spirit of Failure Month, let's lower our sights enough that we can s/some/to.  Let's just see how much of a class system we can put together.  In this post, we'll get method binding working properly, and in a future one we'll look at inheritance.&lt;/p&gt;
 &lt;p&gt;To avoid muddying the waters with the implementation language's classes, we'll use one that doesn't have any - javascript.  We'll avoid the dark corners &amp;amp; just work with functions and hash tables, so if you know any scripting language you should be able to follow this fine. &lt;a class="footnote-reference" href="http://rose.github.io/posts/methodical-bondage/#id4" id="id1"&gt;[1]&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Let's start without methods, and just get attribute lookups happening.  We want to build the backend compilery bits that implement this sort of functionality:&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
