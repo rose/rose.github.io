@@ -18,6 +18,8 @@ If you're unsure what a history expansion will do, you can have bash print it ou
 
 The expanded line will be added to your history even though it wasn't run, so if it's what you wanted you can run it with !!.  If it's close but not quite right, hit up or ^P to edit it.
 
+.. TEASER_END
+
 This colon nonsense also lets you perform substitutions:
 
 .. code:: console

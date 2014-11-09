@@ -108,27 +108,7 @@
 touch king of the world</span>
 </pre>
 <p>The expanded line will be added to your history even though it wasn't run, so if it's what you wanted you can run it with !!.  If it's close but not quite right, hit up or ^P to edit it.</p>
-<p>This colon nonsense also lets you perform substitutions:</p>
-<pre class="code console literal-block">
-<span class="gp">$</span> vin ordinaire
-<span class="go">bash: vin: command not found
-</span><span class="gp">$</span> !!:s/n/m
-<span class="go">vim ordinaire</span>
-</pre>
-<p>Note that only the first instance of the first string is substituted.  Using gs instead of s will replace every match.</p>
-<p>That's handy, but a little verbose.  There's a short form that's equivalent to !!:s:</p>
-<pre class="code console literal-block">
-<span class="gp">$</span> grep -lIr awesomeness ./* <span class="c"># whoops, I wanted that to be case insensitive
-</span><span class="gp">$</span><span class="c"></span> ^l^il
-<span class="go">grep -ilIr awesomeness ./*
-./todo:1005: (Note: this item should increase my AWESOMENESS by 2.7%.)</span>
-</pre>
-<p>Finally, in the last post I forgot^H^H^H^H^H^Hwas too awesome to mention that !? will find a match anywhere in the command, not just the beginning:</p>
-<pre class="code console literal-block">
-<span class="gp">$</span> !?dev
-<span class="go">vim /dev/null</span>
-</pre>
-<p>This is not exhaustive, believe it or not, but we've covered all of the options that I use.  If you think you need to know more about bash history expansion, I recommend seeking immediate psychiatric help.  But while you're waiting you could read what <a class="reference external" href="http://blog.sanctum.geek.nz/bash-history-expansion/">Arabesque</a> or <a class="reference external" href="http://www.catonmat.net/blog/the-definitive-guide-to-bash-command-line-history/">Peteris Krumins</a> have to say about the subject (spoiler: a lot).</p>
+<p class="more"><a href="posts/alternate-histories/">Read more…</a></p>
 </div>
     </div>
     </article>

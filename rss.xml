@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link type="application/rss+xml" rel="self" href="http://rose.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sat, 08 Nov 2014 22:27:38 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Alternate Histories</title><link>http://rose.github.io/posts/alternate-histories/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;A couple days ago I wrote &lt;a class="reference external" href="http://rose.github.io/posts/starting-with-a-bang/"&gt;a post&lt;/a&gt; about bash's history completion.  It has since been brought to my attention that lesser programmers are in the habit of making "mistakes" when typing commands.  This post is dedicated to those unfortunate souls.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link rel="self" href="http://rose.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 08 Nov 2014 22:31:52 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Alternate Histories</title><link>http://rose.github.io/posts/alternate-histories/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;A couple days ago I wrote &lt;a class="reference external" href="http://rose.github.io/posts/starting-with-a-bang/"&gt;a post&lt;/a&gt; about bash's history completion.  It has since been brought to my attention that lesser programmers are in the habit of making "mistakes" when typing commands.  This post is dedicated to those unfortunate souls.&lt;/p&gt;
 &lt;p&gt;If you're unsure what a history expansion will do, you can have bash print it out:&lt;/p&gt;
 &lt;pre class="code console literal-block"&gt;
 &lt;span class="gp"&gt;$&lt;/span&gt; touch !-3*:p  &lt;span class="c"&gt;# recall that !-3* is the arguments of the third most recent command.
@@ -7,27 +7,7 @@
 touch king of the world&lt;/span&gt;
 &lt;/pre&gt;
 &lt;p&gt;The expanded line will be added to your history even though it wasn't run, so if it's what you wanted you can run it with !!.  If it's close but not quite right, hit up or ^P to edit it.&lt;/p&gt;
-&lt;p&gt;This colon nonsense also lets you perform substitutions:&lt;/p&gt;
-&lt;pre class="code console literal-block"&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; vin ordinaire
-&lt;span class="go"&gt;bash: vin: command not found
-&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt; !!:s/n/m
-&lt;span class="go"&gt;vim ordinaire&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Note that only the first instance of the first string is substituted.  Using gs instead of s will replace every match.&lt;/p&gt;
-&lt;p&gt;That's handy, but a little verbose.  There's a short form that's equivalent to !!:s:&lt;/p&gt;
-&lt;pre class="code console literal-block"&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; grep -lIr awesomeness ./* &lt;span class="c"&gt;# whoops, I wanted that to be case insensitive
-&lt;/span&gt;&lt;span class="gp"&gt;$&lt;/span&gt;&lt;span class="c"&gt;&lt;/span&gt; ^l^il
-&lt;span class="go"&gt;grep -ilIr awesomeness ./*
-./todo:1005: (Note: this item should increase my AWESOMENESS by 2.7%.)&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;Finally, in the last post I forgot^H^H^H^H^H^Hwas too awesome to mention that !? will find a match anywhere in the command, not just the beginning:&lt;/p&gt;
-&lt;pre class="code console literal-block"&gt;
-&lt;span class="gp"&gt;$&lt;/span&gt; !?dev
-&lt;span class="go"&gt;vim /dev/null&lt;/span&gt;
-&lt;/pre&gt;
-&lt;p&gt;This is not exhaustive, believe it or not, but we've covered all of the options that I use.  If you think you need to know more about bash history expansion, I recommend seeking immediate psychiatric help.  But while you're waiting you could read what &lt;a class="reference external" href="http://blog.sanctum.geek.nz/bash-history-expansion/"&gt;Arabesque&lt;/a&gt; or &lt;a class="reference external" href="http://www.catonmat.net/blog/the-definitive-guide-to-bash-command-line-history/"&gt;Peteris Krumins&lt;/a&gt; have to say about the subject (spoiler: a lot).&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/alternate-histories/</guid><pubDate>Sun, 09 Nov 2014 02:02:35 GMT</pubDate></item><item><title>Beginner Eye for the Expert Guy</title><link>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;When I first installed linux I went through a phase of starting everything from a terminal ("lookit me, I'm a hacker!"), and &lt;em&gt;every friggin one of them&lt;/em&gt; filled the screen with:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://rose.github.io/posts/alternate-histories/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/alternate-histories/</guid><pubDate>Sun, 09 Nov 2014 02:02:35 GMT</pubDate></item><item><title>Beginner Eye for the Expert Guy</title><link>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;When I first installed linux I went through a phase of starting everything from a terminal ("lookit me, I'm a hacker!"), and &lt;em&gt;every friggin one of them&lt;/em&gt; filled the screen with:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
 Info:  Invalid doohickey.
 Warning:  Something bad is happening, just fyi.
