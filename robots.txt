@@ -1,0 +1,2 @@
+Sitemap: http://rose.github.io/sitemapindex.xml
+

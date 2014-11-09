@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <sitemap>
+  <loc>http://rose.github.io/categories/assembly.xml</loc>
+  <lastmod>2014-11-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/categories/c++.xml</loc>
+  <lastmod>2014-11-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/categories/c.xml</loc>
+  <lastmod>2014-11-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/categories/kill-it-with-fire.xml</loc>
+  <lastmod>2014-11-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/categories/perfectionism.xml</loc>
+  <lastmod>2014-11-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/categories/python.xml</loc>
+  <lastmod>2014-11-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/galleries/rss.xml</loc>
+  <lastmod>2014-11-01</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/rss.xml</loc>
+  <lastmod>2014-11-08</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/sitemap.xml</loc>
+  <lastmod>2014-11-08</lastmod>
+ </sitemap>
+</sitemapindex>

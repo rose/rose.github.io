@@ -6,54 +6,90 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://rose.github.io/</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-08</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/2014/</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-01</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/archive.html</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-08</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/categories/</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-08</lastmod>
  </url>
  <url>
-  <loc>http://rose.github.io/categories/perfectionism.xml</loc>
-  <lastmod>2014-05-18</lastmod>
+  <loc>http://rose.github.io/categories/assembly/</loc>
+  <lastmod>2014-11-01</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/categories/c++/</loc>
+  <lastmod>2014-11-08</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/categories/c/</loc>
+  <lastmod>2014-11-01</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/categories/kill-it-with-fire/</loc>
+  <lastmod>2014-11-01</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/categories/perfectionism/</loc>
-  <lastmod>2014-05-18</lastmod>
- </url>
- <url>
-  <loc>http://rose.github.io/categories/python.xml</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-01</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/categories/python/</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-01</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/galleries/</loc>
-  <lastmod>2014-05-18</lastmod>
- </url>
- <url>
-  <loc>http://rose.github.io/galleries/rss.xml</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-01</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/listings/</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-01</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/30-failures-in-30-days/</loc>
+  <lastmod>2014-11-01</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/alternate-histories/</loc>
+  <lastmod>2014-11-08</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/posts/babys-first-decorator-caching-functions/</loc>
-  <lastmod>2014-05-18</lastmod>
+  <lastmod>2014-11-01</lastmod>
  </url>
  <url>
-  <loc>http://rose.github.io/rss.xml</loc>
-  <lastmod>2014-05-18</lastmod>
+  <loc>http://rose.github.io/posts/bad-code-should-read-like-poetry/</loc>
+  <lastmod>2014-11-04</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</loc>
+  <lastmod>2014-11-07</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/in-which-i-mind-the-gap/</loc>
+  <lastmod>2014-11-05</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/incremental-complexity/</loc>
+  <lastmod>2014-11-01</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/methodical-bondage/</loc>
+  <lastmod>2014-11-06</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/starting-with-a-bang/</loc>
+  <lastmod>2014-11-02</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/ugly-kittens-and-booze/</loc>
+  <lastmod>2014-11-03</lastmod>
  </url>
 </urlset>
