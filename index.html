@@ -16,6 +16,7 @@
 
 
 
+        <link rel="next" href="index-1.html" type="text/html">
 
     
         <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
@@ -84,6 +85,32 @@
             
             
 <div class="postindex">
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/the-post-of-my-dreams/" class="u-url">The Post of My Dreams</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="posts/the-post-of-my-dreams/" rel="bookmark"><time class="published dt-published" datetime="2014-11-10T02:26:16+00:00" itemprop="datePublished" title="2014-11-10 02:26">2014-11-10 02:26</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/the-post-of-my-dreams/#disqus_thread" data-disqus-identifier="cache/posts/the-post-of-my-dreams.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Hoo boy.  You know you're running out of material when you start talking about that weird dream you had.</p>
+<ul class="simple">
+<li>I am washing dishes when I realize that it is a repetitive task, which means I should automate it. I write a short bash script and then think, "Awesome, now I can have more interesting dreams".</li>
+<li>I am having fun at the beach when someone asks me to go to a party. I can't decide whether to go, so I create a new branch and go to the party on that while staying at the beach on master. Afterwords I get a merge conflict and have to edit my brain.</li>
+<li>I am pacman, but the game was written as a text adventure ("You eat a dot. You eat a dot. You eat a dot. You hear a ghost approaching from a corridor on the left. You eat a dot....")</li>
+</ul>
+<p>Code tomorrow, I promise.</p>
+</div>
+    </div>
+    </article>
     <article class="h-entry post-text">
     <header>
         <h1 class="p-name entry-title"><a href="posts/alternate-histories/" class="u-url">Alternate Histories</a></h1>
@@ -352,41 +379,15 @@ okfinewtvr</span>
 </div>
     </div>
     </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/babys-first-decorator-caching-functions/" class="u-url">Baby's First Decorator - Caching Functions</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
-            <p class="dateline"><a href="posts/babys-first-decorator-caching-functions/" rel="bookmark"><time class="published dt-published" datetime="2014-05-18T12:17:11+00:00" itemprop="datePublished" title="2014-05-18 12:17">2014-05-18 12:17</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/babys-first-decorator-caching-functions/#disqus_thread" data-disqus-identifier="cache/posts/babys-first-decorator-caching-functions.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Here's a fibonacci function in python.</p>
-<pre class="code python literal-block">
-<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
-  <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-<p>You probably know why this is terrible.  If you've never encountered exponential runtime before, try running this on increasing numbers - it's pretty eye-opening.</p>
-<pre class="code python literal-block">
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
-<span class="o">...</span>   <span class="k">print</span> <span class="p">(</span><span class="s">"fib </span><span class="si">%d</span><span class="s">: </span><span class="si">%d</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-</pre>
-<p>On my computer, the values up to 25 print instantly.  30 takes a noticeable fraction of a second, 35 a couple of seconds... and 40 maxes out one of my processors until I get bored and kill it.  Even if your computer and your attention span are both twice as good as mine, I bet you don't sit through fib(50).</p>
-<p>Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?</p>
-<p class="more"><a href="posts/babys-first-decorator-caching-functions/">Read more…</a></p>
-</div>
-    </div>
-    </article>
 </div>
 
+        <nav class="postindexpager">
+        <ul class="pager">
+            <li class="next">
+                <a href="index-1.html" rel="next">Older posts</a>
+            </li>
+        </ul>
+        </nav>
 
 
         

@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://rose.github.io/</loc>
-  <lastmod>2014-11-08</lastmod>
+  <lastmod>2014-11-09</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/2014/</loc>
@@ -49,6 +49,10 @@
   <lastmod>2014-11-01</lastmod>
  </url>
  <url>
+  <loc>http://rose.github.io/index-1.html</loc>
+  <lastmod>2014-11-09</lastmod>
+ </url>
+ <url>
   <loc>http://rose.github.io/listings/</loc>
   <lastmod>2014-11-01</lastmod>
  </url>
@@ -87,6 +91,10 @@
  <url>
   <loc>http://rose.github.io/posts/starting-with-a-bang/</loc>
   <lastmod>2014-11-02</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/the-post-of-my-dreams/</loc>
+  <lastmod>2014-11-09</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/posts/ugly-kittens-and-booze/</loc>

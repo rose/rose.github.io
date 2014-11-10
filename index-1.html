@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="# sudo man sudo">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Superluser (old posts, page 1) | Superluser</title>
+
+    
+            <link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+
+      <link rel="canonical" href="http://rose.github.io/index-1.html">
+
+
+
+        <link rel="prev" href="index.html" type="text/html">
+
+    
+        <!--[if lt IE 9]><script src="assets/js/html5.js"></script><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">
+
+                <span id="blog-title">Superluser</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="archive.html">Archives</a>
+                </li>
+<li>
+<a href="categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<div class="postindex">
+    <article class="h-entry post-text">
+    <header>
+        <h1 class="p-name entry-title"><a href="posts/babys-first-decorator-caching-functions/" class="u-url">Baby's First Decorator - Caching Functions</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="posts/babys-first-decorator-caching-functions/" rel="bookmark"><time class="published dt-published" datetime="2014-05-18T12:17:11+00:00" itemprop="datePublished" title="2014-05-18 12:17">2014-05-18 12:17</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/babys-first-decorator-caching-functions/#disqus_thread" data-disqus-identifier="cache/posts/babys-first-decorator-caching-functions.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Here's a fibonacci function in python.</p>
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</pre>
+<p>You probably know why this is terrible.  If you've never encountered exponential runtime before, try running this on increasing numbers - it's pretty eye-opening.</p>
+<pre class="code python literal-block">
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+<span class="o">...</span>   <span class="k">print</span> <span class="p">(</span><span class="s">"fib </span><span class="si">%d</span><span class="s">: </span><span class="si">%d</span><span class="s">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fib</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+</pre>
+<p>On my computer, the values up to 25 print instantly.  30 takes a noticeable fraction of a second, 35 a couple of seconds... and 40 maxes out one of my processors until I get bored and kill it.  Even if your computer and your attention span are both twice as good as mine, I bet you don't sit through fib(50).</p>
+<p>Now, it's not too much trouble to write a better fib; we could make it iterative, or store and look up previously calculated values.  But this is an example of a more general problem - what if this was a big hairy function we didn't want to mess around with?  Or if we had 100 small functions with the same issue?</p>
+<p class="more"><a href="posts/babys-first-decorator-caching-functions/">Read more…</a></p>
+</div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager">
+        <ul class="pager">
+            <li class="previous">
+                <a href="index.html" rel="prev">Newer posts</a>
+            </li>
+        </ul>
+        </nav>
+
+
+        
+       <script>var disqus_shortname="superluser";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
+
+
+</body>
+</html>
