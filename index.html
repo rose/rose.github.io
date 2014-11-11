@@ -87,6 +87,28 @@
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/taste-test/" class="u-url">Taste Test</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="posts/taste-test/" rel="bookmark"><time class="published dt-published" datetime="2014-11-11T03:13:38+00:00" itemprop="datePublished" title="2014-11-11 03:13">2014-11-11 03:13</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/taste-test/#disqus_thread" data-disqus-identifier="cache/posts/taste-test.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p><em>Note: If you got here while googling for answers to your homework, use this code and be welcome!  With a few modifications it will work for fizzbuzz and the traveling salesman problem as well.</em></p>
+<p><a class="reference external" href="posts/in-which-i-mind-the-gap/">In Which I Mind the Gap</a> has gotten a lot more response than I expected. <a class="footnote-reference" href="posts/taste-test/#id2" id="id1">[1]</a>  Apparently a lot of people, some of whom are inarguably much better programmers than me, are hypercritical of their own code.  One of them questioned whether he had any taste at all, and I wrote this in response:</p>
+<p class="more"><a href="posts/taste-test/">Read more…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/the-post-of-my-dreams/" class="u-url">The Post of My Dreams</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
@@ -340,42 +362,6 @@ okfinewtvr</span>
 <p>I had been reading intensively since I was 4, and the first few times I tried to put a story down on paper were absolutely horrifying.  I could see the vast gulf between what I had produced and what I would be willing to consume, but I didn't have the skills or maturity to bridge that gulf.  The constant gold stars and head patting I got in math were much more appealing, so I decided that writing was not a thing I was going to do.</p>
 <p>And I was stubborn enough to get away with this for a long time.  Teachers don't always like stubborn kids, but they <em>love</em> quiet kids who get excited about books.</p>
 <p class="more"><a href="posts/30-failures-in-30-days/">Read more…</a></p>
-</div>
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/incremental-complexity/" class="u-url">Incremental Complexity</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
-            <p class="dateline"><a href="posts/incremental-complexity/" rel="bookmark"><time class="published dt-published" datetime="2014-05-26T15:04:02+00:00" itemprop="datePublished" title="2014-05-26 15:04">2014-05-26 15:04</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/incremental-complexity/#disqus_thread" data-disqus-identifier="cache/posts/incremental-complexity.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>A friend suggested, perhaps facetiously, that I should do a post on incrementation.  It took me down some surprisingly interesting roads; of them all, here's my favourite.</p>
-<p>There are a number of implementations of Peano numbers in C++ templates, <a class="footnote-reference" href="posts/incremental-complexity/#id4" id="id1">[1]</a> but most of them use ints in some form or other, for example:</p>
-<pre class="code c++ literal-block">
-<span class="k">struct</span> <span class="n">Zero</span> <span class="p">{</span> <span class="k">enum</span> <span class="p">{</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">};</span> <span class="p">};</span>
-
-<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">N</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Succ</span> <span class="p">{</span> <span class="k">enum</span> <span class="p">{</span> <span class="n">value</span> <span class="o">=</span> <span class="n">N</span><span class="o">::</span><span class="n">value</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">};</span> <span class="p">};</span>
-</pre>
-<p>This is fine as far as it goes, but it's still explicitly depending on the computer's ability to do arithmetic on ints.  If you're going to type the characters "+ 1" anyway, you might as well give up and use python.  I prefer the following:</p>
-<pre class="code c++ literal-block">
-<span class="k">struct</span> <span class="n">Zero</span> <span class="p">{</span> <span class="p">};</span>
-
-<span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">P</span><span class="o">&gt;</span>
-<span class="k">struct</span> <span class="n">Succ</span> <span class="p">{</span> <span class="p">};</span>
-</pre>
-<p>This shows what's happening much more clearly.  We're not using numbers to define incrementation; we're <strong>using incrementation to define numbers</strong>.  Let's see what we can do with these numbers...</p>
-<p class="more"><a href="posts/incremental-complexity/">Read more…</a></p>
 </div>
     </div>
     </article>

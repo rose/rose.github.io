@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taste Test | Superluser</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+      <link rel="canonical" href="http://rose.github.io/posts/taste-test/">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+
+
+    
+
+    <meta name="author" content="Rose Ames">
+        <link rel="prev" href="../../posts/the-post-of-my-dreams/" title="The Post of My Dreams" type="text/html">
+    
+    <meta property="og:site_name" content="Superluser">
+    <meta property="og:title" content="Taste Test">
+    <meta property="og:url" content="http://rose.github.io/posts/taste-test/">
+    <meta property="og:description" content="Note: If you got here while googling for answers to your homework, use this code and be welcome!  With a few modifications it will work for fizzbuzz and the traveling salesman problem as well.
+In Whic">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-11-11T03:13:38+00:00">
+
+    
+
+    
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">
+
+                <span id="blog-title">Superluser</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="../../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/taste-test/index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../../posts/taste-test/" class="u-url">Taste Test</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="../../posts/taste-test/" rel="bookmark"><time class="published dt-published" datetime="2014-11-11T03:13:38+00:00" itemprop="datePublished" title="2014-11-11 03:13">2014-11-11 03:13</time></a></p>
+                <p class="commentline">
+        
+    <a href="../../posts/taste-test/#disqus_thread" data-disqus-identifier="cache/posts/taste-test.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="../../posts/taste-test/index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><em>Note: If you got here while googling for answers to your homework, use this code and be welcome!  With a few modifications it will work for fizzbuzz and the traveling salesman problem as well.</em></p>
+<p><a class="reference external" href="../../posts/in-which-i-mind-the-gap/">In Which I Mind the Gap</a> has gotten a lot more response than I expected. <a class="footnote-reference" href="../../posts/taste-test/#id2" id="id1">[1]</a>  Apparently a lot of people, some of whom are inarguably much better programmers than me, are hypercritical of their own code.  One of them questioned whether he had any taste at all, and I wrote this in response:</p>
+<!-- TEASER_END -->
+<pre class="code python literal-block">
+<span class="k">def</span> <span class="nf">isMax_elmntINthe_Array</span><span class="p">(</span><span class="n">my_the_array</span><span class="p">,</span> <span class="n">find_max</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="n">find_min</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">find_max</span>
+    <span class="n">highestMaxormin_found</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># there isn't one so its 0</span>
+    <span class="k">for</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">my_the_array</span><span class="p">:</span>
+        <span class="n">new_Array1</span> <span class="o">=</span> <span class="n">my_the_array</span>
+        <span class="k">if</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">new_Array1</span><span class="p">:</span>
+            <span class="n">doFindMax</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">find_min</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">doFindmax</span> <span class="o">=</span> <span class="p">(</span><span class="n">find_max</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">this_elem</span> <span class="o">=</span> <span class="n">array</span> <span class="c"># set this_elem to the value represented by the variable array</span>
+        <span class="c"># this will ensure that they are equal.</span>
+        <span class="k">if</span> <span class="s">"doFindMax"</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">doFindMax</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">highestMaxormin_found</span> <span class="o">&gt;</span> <span class="n">this_elem</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="bp">NotImplemented</span> <span class="c"># the else clause is slow</span>
+                        <span class="c"># so we move these calculations out of this branch to balance the evaluation</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">elem1</span> <span class="ow">in</span> <span class="n">my_the_array</span><span class="p">:</span>
+                            <span class="n">this_elem1</span> <span class="o">=</span> <span class="n">elem1</span> <span class="c"># this elem1 is a variable</span>
+                            <span class="n">newmax</span> <span class="o">=</span> <span class="n">this_elem</span>
+                            <span class="n">highestMaxormin_found</span> <span class="o">=</span> <span class="n">newmax</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="bp">NotImplemented</span> <span class="c"># see line 25</span>
+            <span class="k">except</span><span class="p">:</span> <span class="c"># see line 24 ^</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">doFindMax</span> <span class="ow">and</span> <span class="n">doFindMax</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+                    <span class="n">this_elem1</span> <span class="o">=</span> <span class="p">[</span><span class="n">this_elem2</span> <span class="k">for</span> <span class="n">this_elem2</span> <span class="ow">in</span> <span class="n">new_Array1</span> <span class="k">if</span> <span class="n">this_elem2</span> <span class="o">==</span> <span class="n">this_elem</span><span class="p">]</span>
+                    <span class="n">this_elem1</span> <span class="o">=</span> <span class="n">this_elem1</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="s">"0"</span><span class="p">)]</span> <span class="c"># an int is 30 - 60 bytes depending on you're</span>
+                    <span class="c"># os (windows or iphone or vista) so we can optimize this by using one byte and</span>
+                    <span class="c"># making it an int.  TODO find what string would make 3 and optimize findMax</span>
+                    <span class="k">if</span> <span class="n">this_elem1</span> <span class="o">&lt;</span> <span class="n">highestMaxormin_found</span> <span class="ow">and</span> <span class="n">doFindMax</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+                        <span class="n">highestMaxormin_found</span> <span class="o">=</span> <span class="n">this_elem1</span>
+        <span class="k">elif</span> <span class="s">"doFindmax"</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">doFindmax</span><span class="p">:</span>
+                <span class="n">find_min</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">if</span> <span class="n">this_elem</span> <span class="o">&lt;</span> <span class="n">highestMaxormin_found</span><span class="p">:</span>
+                    <span class="n">highestMaxormin_found</span> <span class="o">=</span> <span class="n">this_elem</span>
+                    <span class="k">raise</span> <span class="bp">NotImplemented</span> <span class="c"># this is an error because doFindmax shouldnt exist</span>
+    <span class="k">return</span> <span class="n">highestMaxormin_found</span>
+</pre>
+<p>It was actually pretty fun to write, and I think he got the point.  While this is obviously super exaggerated, the mistakes (useless comments, untested optimizations, inefficient algorithms, misleading variable names, etc) are all ones that actual programmers actually make.</p>
+<p>Sometime when you're doubting yourself, try sitting down and writing some crappy code.  It's a great way to consciously remember what you've forgotten you know.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/taste-test/#id1">[1]</a></td>
+<td>which was none</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/the-post-of-my-dreams/" rel="prev" title="The Post of My Dreams">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/taste-test/",
+        disqus_title="Taste Test",
+        disqus_identifier="cache/posts/taste-test.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+
+</article>
+
+        
+       <script>var disqus_shortname="superluser";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
+
+
+</body>
+</html>
