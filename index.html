@@ -87,6 +87,44 @@
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/measured-in-wats/" class="u-url">Measured In Wats</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="posts/measured-in-wats/" rel="bookmark"><time class="published dt-published" datetime="2014-11-13T01:37:43+00:00" itemprop="datePublished" title="2014-11-13 01:37">2014-11-13 01:37</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/measured-in-wats/#disqus_thread" data-disqus-identifier="cache/posts/measured-in-wats.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>Knowledge is power - it's measured in wats.  That's the best line in the post, but you can keep reading if you want.</p>
+<p>Javascript has a parseInt function that does what you'd expect:</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"3"</span><span class="p">)</span>
+<span class="mi">3</span>
+</pre>
+<p>Its array prototype has a map function which also does what you'd expect:</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="kd">function</span> <span class="nx">addOne</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="o">&gt;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">addOne</span><span class="p">)</span>
+<span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span>
+</pre>
+<p>I lied.  Neither of these functions does what you probably think they do, at least not exactly.</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="p">[</span><span class="s1">'7'</span><span class="p">,</span><span class="s1">'9'</span><span class="p">,</span><span class="s1">'11'</span><span class="p">,</span><span class="s1">'13'</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">)</span>
+</pre>
+<p>I'm not going to tell you what the output of that is.  Type it in to your browser console or Node.  I dare you.</p>
+<p class="more"><a href="posts/measured-in-wats/">Read more…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/the-poor-workman/" class="u-url">The Poor Workman</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
@@ -330,36 +368,6 @@ Thanks for using VLC!
 <p>I've spent my time as a programmer merrily bouncing from language to language ("Forth!  Oooh, Haskell... no, assembly!").  But in the meantime, Python was casually easing its way more and more into my brain and fingers.  So many moocs require it, so many blog posts use it for examples, so many of my friends know it.  Over the last few months I've resigned myself to the fact that it has become my strongest language.</p>
 <p>I don't mean to sound unkind.  Python's a fine language.  It's the vodka of programming languages - powerful, convenient, mixes well with a lot of things.  If Point B is processed data and a lampshade on your head, Python and vodka will get you there.  But I can't shake the feeling that they're both a little <em>bland</em>.</p>
 <p class="more"><a href="posts/ugly-kittens-and-booze/">Read more…</a></p>
-</div>
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/starting-with-a-bang/" class="u-url">Starting with a Bang</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
-            <p class="dateline"><a href="posts/starting-with-a-bang/" rel="bookmark"><time class="published dt-published" datetime="2014-11-02T10:13:30+00:00" itemprop="datePublished" title="2014-11-02 10:13">2014-11-02 10:13</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/starting-with-a-bang/#disqus_thread" data-disqus-identifier="cache/posts/starting-with-a-bang.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>You don't use a linux system for long without learning about !!.  It's handy in situations like this:</p>
-<pre class="code console literal-block">
-<span class="gp">$</span> <span class="nb">echo</span> <span class="s2">"I'm king of the world!"</span> &gt;/etc/fstab
-<span class="go">lolwutno
-</span><span class="gp">$</span> sudo !! <span class="c"># DO NOT ACTUALLY DO THIS
-</span><span class="go">sudo echo "I'm king of the world!" &gt;/etc/fstab
-pswdplz:
-okfinewtvr</span>
-</pre>
-<p>But history expansion can do much more than repeat the last command.</p>
-<p class="more"><a href="posts/starting-with-a-bang/">Read more…</a></p>
 </div>
     </div>
     </article>

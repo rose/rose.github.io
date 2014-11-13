@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Measured In Wats | Superluser</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+      <link rel="canonical" href="http://rose.github.io/posts/measured-in-wats/">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+
+
+    
+
+    <meta name="author" content="Rose Ames">
+        <link rel="prev" href="../../posts/the-poor-workman/" title="The Poor Workman" type="text/html">
+    
+    <meta property="og:site_name" content="Superluser">
+    <meta property="og:title" content="Measured In Wats">
+    <meta property="og:url" content="http://rose.github.io/posts/measured-in-wats/">
+    <meta property="og:description" content="Knowledge is power - it's measured in wats.  That's the best line in the post, but you can keep reading if you want.
+Javascript has a parseInt function that does what you'd expect:
+
+&gt; parseInt(&quot;3&quot;)
+3
+">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-11-13T01:37:43+00:00">
+
+    
+
+    
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">
+
+                <span id="blog-title">Superluser</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="../../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/measured-in-wats/index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../../posts/measured-in-wats/" class="u-url">Measured In Wats</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="../../posts/measured-in-wats/" rel="bookmark"><time class="published dt-published" datetime="2014-11-13T01:37:43+00:00" itemprop="datePublished" title="2014-11-13 01:37">2014-11-13 01:37</time></a></p>
+                <p class="commentline">
+        
+    <a href="../../posts/measured-in-wats/#disqus_thread" data-disqus-identifier="cache/posts/measured-in-wats.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="../../posts/measured-in-wats/index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Knowledge is power - it's measured in wats.  That's the best line in the post, but you can keep reading if you want.</p>
+<p>Javascript has a parseInt function that does what you'd expect:</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"3"</span><span class="p">)</span>
+<span class="mi">3</span>
+</pre>
+<p>Its array prototype has a map function which also does what you'd expect:</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="kd">function</span> <span class="nx">addOne</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="o">&gt;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">addOne</span><span class="p">)</span>
+<span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span>
+</pre>
+<p>I lied.  Neither of these functions does what you probably think they do, at least not exactly.</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="p">[</span><span class="s1">'7'</span><span class="p">,</span><span class="s1">'9'</span><span class="p">,</span><span class="s1">'11'</span><span class="p">,</span><span class="s1">'13'</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">)</span>
+</pre>
+<p>I'm not going to tell you what the output of that is.  Type it in to your browser console or Node.  I dare you.</p>
+<!-- TEASER_END -->
+<p>Before I explain what's going on here, a little justification.  A friend recently objected to the common practice of reducing javascript (or any other language) to a series of wats.  I see her point, but I think wats serve a useful purpose.</p>
+<p>It's my experience, and there's <a class="reference external" href="http://www.scientificamerican.com/article/learning-by-surprise/">some research</a> backing up the idea, that I remember things that surprise me better.  So something I learn via a wat is likely to stick with me for longer than if I just read it in a textbook.</p>
+<p>For that matter, I'm more likely to learn it in the first place - I like thinking I understand the world, and when new information shakes that faith I'll go to great lengths to modify my mental model to accommodate that information.  Finally, that model gets reinforced every time I share a neat wat with my friends or blog readers. <a class="footnote-reference" href="../../posts/measured-in-wats/#id4" id="id1">[1]</a></p>
+<p>I think this is what Peter Siebel is talking about in his <a class="reference external" href="http://www.gigamonkeys.com/code-reading/">great post</a> on code reading:</p>
+<blockquote>
+Code is not literature and we are not readers... instead of trying to pick out a piece of code and ... then discussing it like a bunch of Comp Lit. grad students, I think [it's better] to play the role of a 19th century naturalist returning from a trip to some exotic island to present .. the crazy beetles they found.</blockquote>
+<p>In that spirit, let's examine our beetle a little more closely.  Like most wats, this one is not so difficult to understand once you have all the necessary information.</p>
+<p>First, <em>all</em> arguments in javascript are optional.  If a caller sends more than the expected number, the extra ones will not be bound to any name (though they will be available via an args array <a class="footnote-reference" href="../../posts/measured-in-wats/#id5" id="id2">[2]</a> ).  If the caller sends too few, the omitted parameters will just be undefined.</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="kd">function</span> <span class="nx">describe_args</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">"x is "</span> <span class="o">+</span> <span class="nx">x</span> <span class="o">+</span> <span class="s2">"y is "</span> <span class="o">+</span> <span class="nx">y</span> <span class="p">}</span>
+<span class="o">&gt;</span> <span class="nx">describe_args</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="s1">'x is 1, y is 2'</span>
+<span class="o">&gt;</span> <span class="nx">describe_args</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="s1">'x is 1, y is undefined'</span>
+</pre>
+<p>Second, parseInt takes an optional second argument, which is the base to use in parsing the string:</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="s2">"110"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">6</span>
+</pre>
+<p>It doesn't make sense for this argument to be less than 2.  Most of the time that will result in NaN, but 0 is interpreted as base 10. <a class="footnote-reference" href="../../posts/measured-in-wats/#id6" id="id3">[3]</a></p>
+<p>Third, as you may have guessed by now, map passes two arguments in to the mapping function for each element - the element itself, and the index at which it appears:</p>
+<pre class="code javascript literal-block">
+<span class="o">&gt;</span> <span class="nx">foo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="o">&gt;</span> <span class="kd">function</span> <span class="nx">describe_element</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s2">"element "</span> <span class="o">+</span> <span class="nx">index</span> <span class="o">+</span> <span class="s2">" is "</span> <span class="o">+</span> <span class="nx">element</span> <span class="p">}</span>
+<span class="o">&gt;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">describe_element</span><span class="p">)</span>
+<span class="p">[</span> <span class="s1">'element 0 is 5'</span><span class="p">,</span>
+  <span class="s1">'element 1 is 10'</span><span class="p">,</span>
+  <span class="s1">'element 2 is 20'</span> <span class="p">]</span>
+</pre>
+<p>And that's all there is to it.  Map passes on the index to parseInt on the assumption that it will be ignored if it's not wanted; parseInt sees a second argument and assumes that the caller is specifying a base.  While I might never run across this exact beetle in the wild, it is a vivid and memorable demonstration of how optional arguments can cause unexpected - dare I call it buggy - behaviour.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/measured-in-wats/#id1">[1]</a></td>
+<td>that's an inclusive or.  Please stop crying.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/measured-in-wats/#id2">[2]</a></td>
+<td>it's not exactly an array, but that's a post for another day.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/measured-in-wats/#id3">[3]</a></td>
+<td>I suspect that this is just an unintentional side effect of 0 being falsy (like undefined) - the implementation of parseInt might do something like <cite>if (!base) base = 10</cite>.  But that's just a guess.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/the-poor-workman/" rel="prev" title="The Poor Workman">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/measured-in-wats/",
+        disqus_title="Measured In Wats",
+        disqus_identifier="cache/posts/measured-in-wats.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+
+</article>
+
+        
+       <script>var disqus_shortname="superluser";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
+
+
+</body>
+</html>
