@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Superluser (python)</title><link>http://rose.github.io/</link><description></description><atom:link rel="self" href="http://rose.github.io/categories/python.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 08 Nov 2014 10:41:15 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Baby's First Decorator - Caching Functions</title><link>http://rose.github.io/posts/babys-first-decorator-caching-functions/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;Here's a fibonacci function in python.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Superluser (python)</title><link>http://rose.github.io/</link><description></description><atom:link rel="self" href="http://rose.github.io/categories/python.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 14 Nov 2014 22:54:17 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Meet Mr O</title><link>http://rose.github.io/posts/meet-mr-o/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back I &lt;a class="reference external" href="http://rose.github.io/posts/methodical-bondage/"&gt;promised&lt;/a&gt; to add inheritance to the quick-n-dirty 'classes' I wrote in javascript.  But, I realized that this requires some background on the problems that can arise with multiple inheritance.  So, let's look at how this works in Python, and then we'll implement the algorithm in a later post.&lt;/p&gt;
+&lt;p&gt;Recall that inheritance is a way to find attributes on an object that the object and its class do not have themselves.  We can think of it as getting advice from a friend:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Carol&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hide_body&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"Carol says:  I think there's still room in the root cellar."&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Bob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Carol&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="n"&gt;bob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Bob&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bob&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hide_body&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="c"&gt;# "Carol says:  I think there's still room in the root cellar."&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;note: these code samples use Python 3.  If you're using Python 2, you should have all base classes inherit from object&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Even though Bob doesn't know how to solve his basic life problems, he's ok, because Carol has his back.  Things get a little more complicated when we add more friends:&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;James&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hide_body&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;"James says:  Just turn it over.  If it can't see the police, the police can't see it."&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Betty&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Bob&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;James&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+  &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="n"&gt;betty&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Betty&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;betty&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;hide_body&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;Does Betty's golf instructor end up in Carol's root cellar or not?&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://rose.github.io/posts/meet-mr-o/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>python</category><guid>http://rose.github.io/posts/meet-mr-o/</guid><pubDate>Sat, 15 Nov 2014 01:37:02 GMT</pubDate></item><item><title>Baby's First Decorator - Caching Functions</title><link>http://rose.github.io/posts/babys-first-decorator-caching-functions/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;Here's a fibonacci function in python.&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fib&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;

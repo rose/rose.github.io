@@ -87,6 +87,53 @@
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/meet-mr-o/" class="u-url">Meet Mr O</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="posts/meet-mr-o/" rel="bookmark"><time class="published dt-published" datetime="2014-11-15T01:37:02+00:00" itemprop="datePublished" title="2014-11-15 01:37">2014-11-15 01:37</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/meet-mr-o/#disqus_thread" data-disqus-identifier="cache/posts/meet-mr-o.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>A while back I <a class="reference external" href="posts/methodical-bondage/">promised</a> to add inheritance to the quick-n-dirty 'classes' I wrote in javascript.  But, I realized that this requires some background on the problems that can arise with multiple inheritance.  So, let's look at how this works in Python, and then we'll implement the algorithm in a later post.</p>
+<p>Recall that inheritance is a way to find attributes on an object that the object and its class do not have themselves.  We can think of it as getting advice from a friend:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Carol</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">hide_body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"Carol says:  I think there's still room in the root cellar."</span>
+
+<span class="k">class</span> <span class="nc">Bob</span><span class="p">(</span><span class="n">Carol</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Bob</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">hide_body</span><span class="p">())</span> <span class="c"># "Carol says:  I think there's still room in the root cellar."</span>
+</pre>
+<p><em>note: these code samples use Python 3.  If you're using Python 2, you should have all base classes inherit from object</em></p>
+<p>Even though Bob doesn't know how to solve his basic life problems, he's ok, because Carol has his back.  Things get a little more complicated when we add more friends:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">James</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">hide_body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"James says:  Just turn it over.  If it can't see the police, the police can't see it."</span>
+
+<span class="k">class</span> <span class="nc">Betty</span><span class="p">(</span><span class="n">Bob</span><span class="p">,</span> <span class="n">James</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="n">betty</span> <span class="o">=</span> <span class="n">Betty</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">betty</span><span class="o">.</span><span class="n">hide_body</span><span class="p">())</span>
+</pre>
+<p>Does Betty's golf instructor end up in Carol's root cellar or not?</p>
+<p class="more"><a href="posts/meet-mr-o/">Read more…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/the-write-stuff/" class="u-url">The Write Stuff</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
@@ -357,28 +404,6 @@ Thanks for using VLC!
 <p>Oooh, a filler post consisting almost entirely of a <a class="reference external" href="http://zenpencils.com/comic/90-ira-glass-advice-for-beginners/">link</a> to an inspirational quote about why it bothers me to do a filler post consisting almost entirely of a link to an inspirational quote.  Meta!</p>
 <p>A week ago I had my first patch rejected.  Not "oh we'll need a few changes" rejected; we're talking actual, outright "we do not want this code" rejected.  Ouch.</p>
 <p class="more"><a href="posts/in-which-i-mind-the-gap/">Read more…</a></p>
-</div>
-    </div>
-    </article>
-    <article class="h-entry post-text">
-    <header>
-        <h1 class="p-name entry-title"><a href="posts/bad-code-should-read-like-poetry/" class="u-url">Bad Code Should Read Like Poetry</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
-            <p class="dateline"><a href="posts/bad-code-should-read-like-poetry/" rel="bookmark"><time class="published dt-published" datetime="2014-11-04T11:37:56+00:00" itemprop="datePublished" title="2014-11-04 11:37">2014-11-04 11:37</time></a></p>
-                <p class="commentline">
-        
-    <a href="posts/bad-code-should-read-like-poetry/#disqus_thread" data-disqus-identifier="cache/posts/bad-code-should-read-like-poetry.html">Comments</a>
-
-
-        </p>
-</div>
-    </header>
-    <div class="p-summary entry-summary">
-    <div>
-<p>Yesterday's post went a lot longer than I expected, leaving me with a lot to get done today.  So, I wanted to do something short.  Unfortunately, I'm also aiming to alternate code/non-code articles, and code articles can take a while to do even passably well.</p>
-<p>So, the dilemma facing me this morning was, should I just post a cheesy poem, or try to write some (inevitably crappy) code?  Fortunately my friends pointed out that these two choices are not mutually exclusive.</p>
-<p class="more"><a href="posts/bad-code-should-read-like-poetry/">Read more…</a></p>
 </div>
     </div>
     </article>

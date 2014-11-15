@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meet Mr O | Superluser</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+      <link rel="canonical" href="http://rose.github.io/posts/meet-mr-o/">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+
+
+    
+
+    <meta name="author" content="Rose Ames">
+        <link rel="prev" href="../../posts/the-write-stuff/" title="The Write Stuff" type="text/html">
+    
+    <meta property="og:site_name" content="Superluser">
+    <meta property="og:title" content="Meet Mr O">
+    <meta property="og:url" content="http://rose.github.io/posts/meet-mr-o/">
+    <meta property="og:description" content="A while back I promised to add inheritance to the quick-n-dirty 'classes' I wrote in javascript.  But, I realized that this requires some background on the problems that can arise with multiple inheri">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-11-15T01:37:02+00:00">
+           <meta property="article:tag" content="python">
+
+    
+
+    
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">
+
+                <span id="blog-title">Superluser</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="../../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/meet-mr-o/index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../../posts/meet-mr-o/" class="u-url">Meet Mr O</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="../../posts/meet-mr-o/" rel="bookmark"><time class="published dt-published" datetime="2014-11-15T01:37:02+00:00" itemprop="datePublished" title="2014-11-15 01:37">2014-11-15 01:37</time></a></p>
+                <p class="commentline">
+        
+    <a href="../../posts/meet-mr-o/#disqus_thread" data-disqus-identifier="cache/posts/meet-mr-o.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="../../posts/meet-mr-o/index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>A while back I <a class="reference external" href="../../posts/methodical-bondage/">promised</a> to add inheritance to the quick-n-dirty 'classes' I wrote in javascript.  But, I realized that this requires some background on the problems that can arise with multiple inheritance.  So, let's look at how this works in Python, and then we'll implement the algorithm in a later post.</p>
+<p>Recall that inheritance is a way to find attributes on an object that the object and its class do not have themselves.  We can think of it as getting advice from a friend:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Carol</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">hide_body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"Carol says:  I think there's still room in the root cellar."</span>
+
+<span class="k">class</span> <span class="nc">Bob</span><span class="p">(</span><span class="n">Carol</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="n">bob</span> <span class="o">=</span> <span class="n">Bob</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">hide_body</span><span class="p">())</span> <span class="c"># "Carol says:  I think there's still room in the root cellar."</span>
+</pre>
+<p><em>note: these code samples use Python 3.  If you're using Python 2, you should have all base classes inherit from object</em></p>
+<p>Even though Bob doesn't know how to solve his basic life problems, he's ok, because Carol has his back.  Things get a little more complicated when we add more friends:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">James</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">hide_body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"James says:  Just turn it over.  If it can't see the police, the police can't see it."</span>
+
+<span class="k">class</span> <span class="nc">Betty</span><span class="p">(</span><span class="n">Bob</span><span class="p">,</span> <span class="n">James</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="n">betty</span> <span class="o">=</span> <span class="n">Betty</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">betty</span><span class="o">.</span><span class="n">hide_body</span><span class="p">())</span>
+</pre>
+<p>Does Betty's golf instructor end up in Carol's root cellar or not?</p>
+<!-- TEASER_END -->
+<p>It's pretty clear that she'll ask Bob for advice first, but given that he has no ideas, will she wait for him to ask Carol (who she doesn't directly know), or will she prefer to go straight to James?  The answer, in every language with multiple inheritance that I know of, is that she waits for a response from Carol.</p>
+<p>This might seem counterintuitive.  After all, Betty has specifically indicated an interest in James' opinion.  But it makes things more predictable for her.  All other things being equal, she doesn't care where Bob and James get their ideas - it could change in the future, and she has no control over that - she just wants to do whatever Bob would do, and use James as a back up for when that fails.</p>
+<p>The simplest way to get this behaviour is to do a depth-first search of the friend graph. <a class="footnote-reference" href="../../posts/meet-mr-o/#id5" id="id1">[1]</a>  That's what Python did, up to and including version 2.2.  But this can run into some subtle problems too.  Let's look at agroup of people connected to James.</p>
+<p>This is called a diamond inheritance pattern, for reasons that should be obvious if you sketch it out:</p>
+<pre class="code python literal-block">
+<span class="k">class</span> <span class="nc">Susan</span><span class="p">(</span><span class="n">James</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Amelia</span><span class="p">(</span><span class="n">James</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">hide_body</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s">"Amelia says:  You start a fire, I'll get the barbecue sauce."</span>
+
+<span class="k">class</span> <span class="nc">Eric</span><span class="p">(</span><span class="n">Susan</span><span class="p">,</span> <span class="n">Amelia</span><span class="p">):</span>
+  <span class="k">pass</span>
+
+<span class="n">eric</span> <span class="o">=</span> <span class="n">Eric</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">eric</span><span class="o">.</span><span class="n">hide_body</span><span class="p">())</span>
+</pre>
+<p>What happens now?  The answer depends on whether you're using Python 2.3+. <a class="footnote-reference" href="../../posts/meet-mr-o/#id6" id="id2">[2]</a>  The simple depth-first search of 2.2- will end with Eric following James' advice, which is not too terrible for anyone other than Eric.  So why did they change it?</p>
+<p>Well, there is a slight oddity here.  Amelia knows James, and has specifically decided that his corpse-hiding methods can be improved upon.  We kind of expect anyone who knows Amelia to respect that.  Eric respects Susan's opinion a little more, but if the best advice she can give him is to ask James, maybe he will prefer to go with Amelia's improved technique.</p>
+<p>In other words, we want something that behaves mostly like depth-first search, but that respects any overriden methods that occur in our support network.</p>
+<p>The algorithm Python uses to accomplish this is called C3 linearization.  It involves constructing a list of everyone whose advice you might conceivably be willing to follow, in order of preference.  You by getting all your direct friends' lists.  For example, suppose you know Alanis and Joshua:</p>
+<pre class="code literal-block">
+Alanis would ask Peter, then Paul, then Mary
+Joshua would ask Joseph, then Mary
+You respect Alanis, then Joshua
+</pre>
+<p>You'll merge these lists (including your ordering of your friends) to create your own.  Since Alanis is your first choice, you'll start by running down her list in order (starting with her).  However, before adding anyone, you'll always check if there's someone else who should come first.  So the start of your list will look like this:</p>
+<pre class="code literal-block">
+Alanis, Peter, Paul
+</pre>
+<p>But when you hit Mary, <a class="footnote-reference" href="../../posts/meet-mr-o/#id7" id="id3">[3]</a> Joshua will tell you that she is in his list.  So you'll want to add everyone who appears before her on his list (including him) before adding her:</p>
+<pre class="code literal-block">
+Alanis, Peter, Paul, Joshua, Joseph
+</pre>
+<p>If all these people come up empty, then there's no reason not to ask Mary.  So, your final list is:</p>
+<pre class="code literal-block">
+Alanis, Peter, Paul, Joshua, Joseph, Mary
+</pre>
+<p>You can give this list to anyone who wants your advice; they don't need to know the details of how you constructed it.</p>
+<p>This is an overview of how C3 works, and if you understand it you should be able to design inheritance hierarchies that compile and do what you expect them to do. <a class="footnote-reference" href="../../posts/meet-mr-o/#id8" id="id4">[4]</a>  As you can see, the algorithm is not terribly complicated, and we'll implement it in a future post, thus solving our body-hiding problems once and for all.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/meet-mr-o/#id1">[1]</a></td>
+<td>it's not necessarily a tree, as we'll see in a minute, though unlike a real friendship graph we have to assume there are no cycles.  Truly it is a dystopian world we are creating.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/meet-mr-o/#id2">[2]</a></td>
+<td>spoiler: you are.  You can check by running python --version if you don't believe me.  Remember, if you're using Python 2, your base classes must all inherit from object to get the new behaviour.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/meet-mr-o/#id3">[3]</a></td>
+<td>shame on you.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/meet-mr-o/#id4">[4]</a></td>
+<td>just kidding.  It'll help you debug though.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/the-write-stuff/" rel="prev" title="The Write Stuff">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/meet-mr-o/",
+        disqus_title="Meet Mr O",
+        disqus_identifier="cache/posts/meet-mr-o.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+
+</article>
+
+        
+       <script>var disqus_shortname="superluser";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2014         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
+
+
+</body>
+</html>
