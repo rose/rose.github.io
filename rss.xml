@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link rel="self" href="http://rose.github.io/rss.xml" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 14 Nov 2014 22:54:17 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Meet Mr O</title><link>http://rose.github.io/posts/meet-mr-o/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back I &lt;a class="reference external" href="http://rose.github.io/posts/methodical-bondage/"&gt;promised&lt;/a&gt; to add inheritance to the quick-n-dirty 'classes' I wrote in javascript.  But, I realized that this requires some background on the problems that can arise with multiple inheritance.  So, let's look at how this works in Python, and then we'll implement the algorithm in a later post.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link type="application/rss+xml" rel="self" href="http://rose.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Sat, 15 Nov 2014 21:21:38 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Real Time</title><link>http://rose.github.io/posts/real-time/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;I don't understand how software companies schedule jobs at all.  Anything a programmer knows how to do, she automates.  By definition, the remaining work involves flailing desperately across a sea of poor documentation and broken dreams, wearing the cement shoes of our own ignorance.&lt;/p&gt;
+&lt;p&gt;This summer I did a short contract, for which I had to track my time.  Here's a log excerpt for a typical 5 minute task:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+8:00 - try easy straightforward thing that will definitely work in less than 5 minutes
+8:03 - wtf
+8:04 - google
+8:18 - try stack overflow solution that worked for 687 other people
+8:20 - WTF
+8:26 - reboot server
+8:31 - google
+8:38 - reinstall python
+8:53 - read documentation of all software involved in easy straightforward thing
+10:18 - reinstall grub
+11:27 - read source code of all software involved in easy straightforward thing
+16:87 - WHY IS THIS HAPPENING TO ME 16:87 ISN'T EVEN A REAL TIME
+1:32 - try easy thing that I tried at 8:00
+1:33 - it worked.  W.  Tf.
+1:34 - sooo... how many hours should I bill for this?
+&lt;/pre&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/real-time/</guid><pubDate>Sun, 16 Nov 2014 02:05:37 GMT</pubDate></item><item><title>Meet Mr O</title><link>http://rose.github.io/posts/meet-mr-o/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;A while back I &lt;a class="reference external" href="http://rose.github.io/posts/methodical-bondage/"&gt;promised&lt;/a&gt; to add inheritance to the quick-n-dirty 'classes' I wrote in javascript.  But, I realized that this requires some background on the problems that can arise with multiple inheritance.  So, let's look at how this works in Python, and then we'll implement the algorithm in a later post.&lt;/p&gt;
 &lt;p&gt;Recall that inheritance is a way to find attributes on an object that the object and its class do not have themselves.  We can think of it as getting advice from a friend:&lt;/p&gt;
 &lt;pre class="code python literal-block"&gt;
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Carol&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -119,6 +137,4 @@ Thanks for using VLC!
 &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This should be 3: "&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;get_attr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;f2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'boop'&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
 &lt;/pre&gt;
 &lt;p&gt;After these functions are defined, then we can get to the good stuff.  Excited?&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://rose.github.io/posts/methodical-bondage/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/methodical-bondage/</guid><pubDate>Thu, 06 Nov 2014 16:34:45 GMT</pubDate></item><item><title>In Which I Mind the Gap</title><link>http://rose.github.io/posts/in-which-i-mind-the-gap/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;Oooh, a filler post consisting almost entirely of a &lt;a class="reference external" href="http://zenpencils.com/comic/90-ira-glass-advice-for-beginners/"&gt;link&lt;/a&gt; to an inspirational quote about why it bothers me to do a filler post consisting almost entirely of a link to an inspirational quote.  Meta!&lt;/p&gt;
-&lt;p&gt;A week ago I had my first patch rejected.  Not "oh we'll need a few changes" rejected; we're talking actual, outright "we do not want this code" rejected.  Ouch.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://rose.github.io/posts/in-which-i-mind-the-gap/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/in-which-i-mind-the-gap/</guid><pubDate>Wed, 05 Nov 2014 20:27:01 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://rose.github.io/posts/methodical-bondage/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/methodical-bondage/</guid><pubDate>Thu, 06 Nov 2014 16:34:45 GMT</pubDate></item></channel></rss>
