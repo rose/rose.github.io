@@ -50,7 +50,7 @@
  </url>
  <url>
   <loc>http://rose.github.io/index-1.html</loc>
-  <lastmod>2014-11-16</lastmod>
+  <lastmod>2014-11-17</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/listings/</loc>
@@ -127,5 +127,9 @@
  <url>
   <loc>http://rose.github.io/posts/ugly-kittens-and-booze/</loc>
   <lastmod>2014-11-03</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/unsafe-cast/</loc>
+  <lastmod>2014-11-17</lastmod>
  </url>
 </urlset>

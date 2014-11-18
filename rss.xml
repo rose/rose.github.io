@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link href="http://rose.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Sun, 16 Nov 2014 23:28:40 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Prime Time</title><link>http://rose.github.io/posts/prime-time/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;I just finished pairing with Gargravarr. &lt;a class="footnote-reference" href="http://rose.github.io/posts/prime-time/#id3" id="id1"&gt;[1]&lt;/a&gt;  My sinister metacarpals have been in revolt for the last couple of days, &lt;a class="footnote-reference" href="http://rose.github.io/posts/prime-time/#id4" id="id2"&gt;[2]&lt;/a&gt; so he drove and I mumbled incoherently &amp;lt;esc&amp;gt;d2bi navigated.  We're learning Rust and finding it a little rough.&lt;/p&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Superluser</title><link>http://rose.github.io/</link><description># sudo man sudo</description><atom:link type="application/rss+xml" rel="self" href="http://rose.github.io/rss.xml"></atom:link><language>en</language><lastBuildDate>Mon, 17 Nov 2014 23:59:30 GMT</lastBuildDate><generator>http://getnikola.com/</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Unsafe Cast</title><link>http://rose.github.io/posts/unsafe-cast/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;This is the first time in this whole experiment that I've been tempted to skip a day.  A lot happened today, some of it expected, some not, and now it's 11:40 and I got nothing.  I can barely write my name in 20 minutes, let alone a lengthy and heartfelt dirty joke about C++.&lt;/p&gt;
+&lt;p&gt;Here's a poem instead:&lt;/p&gt;
+&lt;pre class="code literal-block"&gt;
+I start a limer-
+ick sometimes / but often can't
+get all the rhymes. /  An
+idea hits! / I'll pretend
+that it's / really a tanka
+&lt;/pre&gt;
+&lt;p&gt;Code tomorrow.&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/unsafe-cast/</guid><pubDate>Tue, 18 Nov 2014 04:39:17 GMT</pubDate></item><item><title>Prime Time</title><link>http://rose.github.io/posts/prime-time/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;I just finished pairing with Gargravarr. &lt;a class="footnote-reference" href="http://rose.github.io/posts/prime-time/#id3" id="id1"&gt;[1]&lt;/a&gt;  My sinister metacarpals have been in revolt for the last couple of days, &lt;a class="footnote-reference" href="http://rose.github.io/posts/prime-time/#id4" id="id2"&gt;[2]&lt;/a&gt; so he drove and I mumbled incoherently &amp;lt;esc&amp;gt;d2bi navigated.  We're learning Rust and finding it a little rough.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://rose.github.io/posts/prime-time/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/prime-time/</guid><pubDate>Mon, 17 Nov 2014 02:43:54 GMT</pubDate></item><item><title>Real Time</title><link>http://rose.github.io/posts/real-time/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;I don't understand how software companies schedule jobs at all.  Anything a programmer knows how to do, she automates.  By definition, the remaining work involves flailing desperately across a sea of poor documentation and broken dreams, wearing the cement shoes of our own ignorance.&lt;/p&gt;
 &lt;p&gt;This summer I did a short contract, for which I had to track my time.  Here's a log excerpt for a typical 5 minute task:&lt;/p&gt;
 &lt;pre class="code literal-block"&gt;
@@ -95,18 +104,4 @@ Dammit.
 touch king of the world&lt;/span&gt;
 &lt;/pre&gt;
 &lt;p&gt;The expanded line will be added to your history even though it wasn't run, so if it's what you wanted you can run it with !!.  If it's close but not quite right, hit up or ^P to edit it.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://rose.github.io/posts/alternate-histories/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/alternate-histories/</guid><pubDate>Sun, 09 Nov 2014 02:02:35 GMT</pubDate></item><item><title>Beginner Eye for the Expert Guy</title><link>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</link><dc:creator>Rose Ames</dc:creator><description>&lt;div&gt;&lt;p&gt;When I first installed linux I went through a phase of starting everything from a terminal ("lookit me, I'm a hacker!"), and &lt;em&gt;every friggin one of them&lt;/em&gt; filled the screen with:&lt;/p&gt;
-&lt;pre class="code literal-block"&gt;
-Info:  Invalid doohickey.
-Warning:  Something bad is happening, just fyi.
-Attempting to recover... failed.
-Limping on valiantly.
-Warning:  Doohickey appears to be growing fangs.
-Warning:  Doohickey is attempting to
-DOOHICKEY:  YOAR COMPUTER ARE BELONGE TO ME NOW
-Info:  Emergency shunting from main loop in order to save humanity.  Tell my wife I love her.
-Thanks for using VLC!
-&lt;/pre&gt;
-&lt;p&gt;Watching those poor mutilated programs flailing helplessly away at each other in my RAM, I wondered how my computer could function at all.  Now, of course, I ignore the pathetic cries for help unless something actually goes wrong.&lt;/p&gt;
-&lt;p&gt;I think this transition explains the saying, "can do, can't teach".&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://rose.github.io/posts/beginner-eye-for-the-expert-guy/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/beginner-eye-for-the-expert-guy/</guid><pubDate>Fri, 07 Nov 2014 10:09:54 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="http://rose.github.io/posts/alternate-histories/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><guid>http://rose.github.io/posts/alternate-histories/</guid><pubDate>Sun, 09 Nov 2014 02:02:35 GMT</pubDate></item></channel></rss>
