@@ -87,6 +87,34 @@
 <div class="postindex">
     <article class="h-entry post-text">
     <header>
+        <h1 class="p-name entry-title"><a href="posts/alternate-histories/" class="u-url">Alternate Histories</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="posts/alternate-histories/" rel="bookmark"><time class="published dt-published" datetime="2014-11-09T02:02:35+00:00" itemprop="datePublished" title="2014-11-09 02:02">2014-11-09 02:02</time></a></p>
+                <p class="commentline">
+        
+    <a href="posts/alternate-histories/#disqus_thread" data-disqus-identifier="cache/posts/alternate-histories.html">Comments</a>
+
+
+        </p>
+</div>
+    </header>
+    <div class="p-summary entry-summary">
+    <div>
+<p>A couple days ago I wrote <a class="reference external" href="posts/starting-with-a-bang/">a post</a> about bash's history completion.  It has since been brought to my attention that lesser programmers are in the habit of making "mistakes" when typing commands.  This post is dedicated to those unfortunate souls.</p>
+<p>If you're unsure what a history expansion will do, you can have bash print it out:</p>
+<pre class="code console literal-block">
+<span class="gp">$</span> touch !-3*:p  <span class="c"># recall that !-3* is the arguments of the third most recent command.
+</span><span class="go">                # the new command is echoed but *not* run
+touch king of the world</span>
+</pre>
+<p>The expanded line will be added to your history even though it wasn't run, so if it's what you wanted you can run it with !!.  If it's close but not quite right, hit up or ^P to edit it.</p>
+<p class="more"><a href="posts/alternate-histories/">Read more…</a></p>
+</div>
+    </div>
+    </article>
+    <article class="h-entry post-text">
+    <header>
         <h1 class="p-name entry-title"><a href="posts/beginner-eye-for-the-expert-guy/" class="u-url">Beginner Eye for the Expert Guy</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
