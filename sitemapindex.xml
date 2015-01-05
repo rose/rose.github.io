@@ -10,7 +10,7 @@
  </sitemap>
  <sitemap>
   <loc>http://rose.github.io/categories/c++.xml</loc>
-  <lastmod>2014-11-08</lastmod>
+  <lastmod>2015-01-05</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://rose.github.io/categories/c.xml</loc>
@@ -21,12 +21,20 @@
   <lastmod>2014-11-01</lastmod>
  </sitemap>
  <sitemap>
+  <loc>http://rose.github.io/categories/metacpan.xml</loc>
+  <lastmod>2015-01-05</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>http://rose.github.io/categories/opw.xml</loc>
+  <lastmod>2015-01-05</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://rose.github.io/categories/perfectionism.xml</loc>
   <lastmod>2014-11-01</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://rose.github.io/categories/python.xml</loc>
-  <lastmod>2014-11-14</lastmod>
+  <lastmod>2015-01-05</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://rose.github.io/galleries/rss.xml</loc>
@@ -34,10 +42,10 @@
  </sitemap>
  <sitemap>
   <loc>http://rose.github.io/rss.xml</loc>
-  <lastmod>2014-11-18</lastmod>
+  <lastmod>2015-01-05</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://rose.github.io/sitemap.xml</loc>
-  <lastmod>2014-11-18</lastmod>
+  <lastmod>2015-01-05</lastmod>
  </sitemap>
 </sitemapindex>
