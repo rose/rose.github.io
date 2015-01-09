@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keeping Perl Classy | Superluser</title>
+
+    
+            <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+
+    
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+
+      <link rel="canonical" href="http://rose.github.io/posts/keeping-perl-classy/">
+
+
+
+
+    
+        <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans%7CDroid+Sans+Mono">
+
+
+    
+
+    <meta name="author" content="Rose Ames">
+        <link rel="prev" href="../../posts/dare-to-be-stupid/" title="Dare to be Stupid" type="text/html">
+    
+    <meta property="og:site_name" content="Superluser">
+    <meta property="og:title" content="Keeping Perl Classy">
+    <meta property="og:url" content="http://rose.github.io/posts/keeping-perl-classy/">
+    <meta property="og:description" content="Perl 1 was released in 1987, before object oriented programming was a popular paradigm; while Perl 5 did add an object system, it is very minimal.  Moose is an extremely popular module which adds more">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-01-08T22:21:24+00:00">
+           <meta property="article:tag" content="Perl">
+
+    
+
+    
+
+
+
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://rose.github.io/">
+
+                <span id="blog-title">Superluser</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li>
+<a href="../../archive.html">Archives</a>
+                </li>
+<li>
+<a href="../../categories/index.html">Tags</a>
+                </li>
+<li>
+<a href="../../rss.xml">RSS</a>
+
+                
+            </li>
+</ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                    
+    <li>
+    <a href="../../posts/keeping-perl-classy/index.rst" id="sourcelink">Source</a>
+    </li>
+
+                
+            </ul>
+        </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav>
+
+<!-- End of Menubar -->
+
+<div class="container" id="content">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    
+    <header>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="../../posts/keeping-perl-classy/" class="u-url">Keeping Perl Classy</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">Rose Ames</span></p>
+            <p class="dateline"><a href="../../posts/keeping-perl-classy/" rel="bookmark"><time class="published dt-published" datetime="2015-01-08T22:21:24+00:00" itemprop="datePublished" title="2015-01-08 22:21">2015-01-08 22:21</time></a></p>
+                <p class="commentline">
+        
+    <a href="../../posts/keeping-perl-classy/#disqus_thread" data-disqus-identifier="cache/posts/keeping-perl-classy.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="../../posts/keeping-perl-classy/index.rst" id="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header>
+
+    <div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Perl 1 was released in 1987, before object oriented programming was a popular paradigm; while Perl 5 did add an object system, it is very minimal.  Moose is an extremely popular module which adds more extensive support for object oriented programming.</p>
+<p>I don't know anything about Moose or its history, but I figured I could write something anyway, making educated guesses about how things went down. <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id9" id="id1">[1]</a>  Fortunately haarg came along and sacrificed an hour of his time to save us all from that.  Here's some stuff we typed at each other, with minor rearrangements and editing to make me look literate.  Any resemblance to a real interview is entirely fictional, and you should contact your doctor if it lasts longer than 4 hours.</p>
+<!-- TEASER_END -->
+<p><strong>I'm talking today with haarg, which I can only hope is his real name.  Haarg is a contributor to Moose, which is Perl's de facto object system.</strong></p>
+<p>Haarg or Graham Knop both work.</p>
+<p><strong>So, how long have you been working on Moose?  Were you one of the first contributors or did you join later?</strong></p>
+<p>I started playing with Moose in 2008, but began contributing a few years later.  My first change was included in the 1.0 release.</p>
+<p><strong>Was it the standard at that time or were there competing object systems?  Like, I know there's Moo but that obviously came afterwards.</strong></p>
+<p>Around 2008, it was starting to become widely used, but I think there was still a bit of resistance to moving a lot of stuff to use it.</p>
+<p><strong>Performance concerns or something else?</strong></p>
+<p>Performance concerns, memory usage, and just inertia with older designs and systems.  Some of that was unfounded, but not all.</p>
+<p><strong>So, Moose is basically a dynamic system, i.e. more like Python than C++, but Perl does let you</strong> <a class="reference external" href="http://modernperlbooks.com/mt/2009/08/how-a-perl-5-program-works.html">mix</a> <strong>compile time operations with runtime ones in interesting ways.  Is that used?</strong></p>
+<p>One of the tricks Moose uses is generating accessors and constructors as strings of code and then evaling them.  This eliminates the need for them to do expensive sub calls during object construction.  This is what the -&gt;meta-&gt;make_immutable call is for. <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id10" id="id2">[2]</a>  This has a significant up front cost though, so loading Moose and Moose classes is pretty slow.  At runtime, the operations are of equivalent speed to the hand written versions, so if you have long running processes, this isn't a problem.</p>
+<p><strong>Is that where the Tiny</strong> <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id11" id="id3">[3]</a> <strong>postfix comes from - was it specifically to avoid Moose or is it just to indicate not too many dependencies?</strong></p>
+<p>::Tiny was born earlier on, as a reaction to other heavy modules.  YAML and DateTime are two early examples.A YAML parser was needed as part of the Perl installation toolchain, but the YAML module was very heavy and slow.  This led to YAML::Tiny, which is less capable, but can still do enough to be useful.  It was included in Perl core, although under a different name.  Moo is roughly the ::Tiny equivalent to Moose.  Early in its development, it was called Class::Tiny.  Moo also uses similar tricks to Moose with code generation, but makes different trade offs in terms of when to do that and what other capabilities it has.</p>
+<p><strong>So what's an example of something that Moose does, which the Moo developers decided to omit?</strong></p>
+<p>The big thing here is the entire meta layer.  Moose was in some ways a reaction to the numerous other class builders that existed before it.  It was meant to be a complete system for describing classes, objects, roles, attributes, etc.  With this, it was easy to construct a friendly surface syntax for people to use, but allow other modules powerful tools for manipulating the classes, etc.  Moo replicates most of the surface syntax of Moose, but implements only what is needed to make that part work.  Because it turns out, for 90% of code, the backend meta layer doesn't need to be used directly.</p>
+<p><strong>Can you say a little more about what that meta layer is?  It'd be used to dynamically generate classes, or monkeypatching, or what?</strong></p>
+<p>All of that.  The meta layer is basically having objects to represent all of the Moose classes, attributes, roles, and everything else.  This allows you to interrogate them for information, or attach new behavior.  The meta layer for a class can give you a list of all of the methods the class has, all of the attributes, and all of the parent classes.  And then you can modify these through a consistent interface.  This is all basically possible using raw symbol table manipulations and such, but it's hard to do and hard to keep consistent.</p>
+<p><strong>With great power comes great obfuscation.</strong></p>
+<p>That is also true.  One of the reasons I usually prefer Moo is that it doesn't let you get into the internals, forcing you to keep things simple and only do what is actually required.</p>
+<p><strong>So Perl does actually have an object system, I think it was added in Perl 5?  What do Moose &amp; Moo add to that?  You've already partly answered this.  I guess I'm curious what was left out by the language designers, that made it necessary to add systems like this.</strong></p>
+<p>Yes.  Perl 5 introduced object orientation to Perl, but it is a very rudimentary system.  At the basic level, objects are a combination of data and behaviors.  Perl lets you attach a package to a reference.  The reference is the data, and the package contains the sub[routines]s determining the behavior.  This isn't very user friendly though, so various systems have been created to provide a better syntax and other tools.</p>
+<p><strong>So if you're using the built in object system,the constructor would make a hashref</strong> <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id12" id="id4">[4]</a> <strong>or something as the object and return that.</strong></p>
+<p>Yes.  The classic Perl constructor is a sub called new (although it could be anything) that creates a hashref, blesses it into a package, and returns it.  It may also store some initial data in it.</p>
+<p><strong>And blessing just means that looking things up on that object looks in the package namespace, and the object itself gets passed as the first arg to any sub calls?</strong></p>
+<p>Yes.  When a method is called on a blessed reference, it looks it up in whatever package it was blessed into, and calls it.  It will also search parent classes to find the method if needed.</p>
+<p><strong>Cool, I keep seeing references to blessed references but didn't get what they were.</strong></p>
+<p>So as an example in code, a hashref is like</p>
+<pre class="code perl literal-block">
+<span class="k">my</span> <span class="nv">$data</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"key"</span> <span class="o">=&gt;</span> <span class="s">"value"</span> <span class="p">};</span>
+</pre>
+<p>If you output this as a string, it will be:</p>
+<pre class="code perl literal-block">
+<span class="n">HASH</span><span class="p">(</span><span class="mh">0x7ff134004638</span><span class="p">)</span>
+</pre>
+<p>If you bless it:</p>
+<pre class="code perl literal-block">
+<span class="nb">bless</span> <span class="nv">$data</span><span class="p">,</span> <span class="s">"My::Package"</span><span class="p">;</span>
+</pre>
+<p>it will be printed as:</p>
+<pre class="code perl literal-block">
+<span class="n"></span><span class="nn">My::</span><span class="n">Package</span><span class="o">=</span><span class="n">HASH</span><span class="p">(</span><span class="mh">0x7ff134004638</span><span class="p">)</span>
+</pre>
+<p>This is actually a pretty accurate representation of how it's handled internally.  It's the same hash, but now it has a package attached so it knows where to look for method calls.</p>
+<p><strong>Does it support multiple inheritance?  What's the mro if so?</strong></p>
+<p>Perl does support multiple inheritance.  It uses a DFS algorithm by default, but with Perl 5.10, support for using C3 lookups was added.  Multiple inheritance can be very hard to reason about though, which is one of the things that led to roles being emphasized in Moose.</p>
+<p><strong>Yeah, I did a</strong> <a class="reference external" href="../../posts/meet-mr-o/">post</a> <strong>about Python's move to C3 from DFS.</strong></p>
+<p>Yes, the C3 change in Perl was inspired at least in part by Python.</p>
+<p><strong>So, I'm a little confused about how the package is being 'attached' to the hashref internally.  Did that require a lot of changes to the internal data structures or was it something that was easy to do?</strong></p>
+<p>Perl's various data types have a lot of indirection and ways to attach flags for different capabilities.  Being blessed is one of these.  The difficulty of this is a bit beyond my knowledge though.  An overview of the data types can be seen in the docs for the B module, <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id13" id="id5">[5]</a> but there's a lot more to it.</p>
+<p><strong>One more about Perl, then we'll get back to Moose :).  Why do you think they chose such a minimal implementation?  Was it a deliberate design decision, or a compromise that was easier to fit into the existing language?</strong></p>
+<p>I wasn't around at the time so I can't give an accurate answer on the motivations, but in my mind there is a certain elegance to it.  If you already have data structures and namespaces, just linking those two together already gives you an object system.  And it ends up giving you a lot of power to construct things like Moose.</p>
+<p><strong>Yeah, that's a good point.  I don't entirely understand the excitement around object oriented programming 10 or 20 years ago, it really is stuff that already existed, just organized in a different way.  I guess you could say that about a lot of big ideas though.</strong></p>
+<p>Organization counts for a lot in large codebases though.  That's why we like Moose, roles, inheritance, etc instead of generating everything manually.</p>
+<p><strong>So Moose adds roles, which are more like mixins or interfaces, right?  I know there's been an idea in the air recently that that's preferable to inheritance in most cases.</strong></p>
+<p>Roles could be described as an interface with a partial implementation.  How much is implemented vs described is dependent on the role.</p>
+<p><strong>So at one extreme, you could use a role as an interface, and at the other it becomes a class?</strong>
+A role could have a full implementation of a class, although roles never get constructors so it couldn't be used directly.</p>
+<p><strong>Is that one of the features that has a lot of overhead?  How is it implemented?</strong></p>
+<p>Not particularly.  Most of the overhead involved with Moose is in keeping track of the data structures describing everything, and generating the needed methods.  A non-inlined constructor for example has to look many things up and make many sub calls.  The way roles are implemented is primarily by copying subs between packages.  While subs can be named, they are references that can be stored and moved around like any other.  Named subs are stored in the symbol table, but you can copy the references between different parts of the symbol table to add them to other packages.</p>
+<p><strong>You mentioned earlier that Moose has a substantial startup cost.  Could the method generation be done lazily?</strong></p>
+<p>This is one of the tricks Moo uses.  It does very little processing upfront on the options you give it, but then does the full generation of constructors and accessors when they are first called.  This means if you load a class but never actually create any objects with it, you never have to pay for the constructor generation.</p>
+<p><strong>But this isn't something that's on the docket for Moose.  What would you say is the difference in focus for the two projects?</strong></p>
+<p>Moo is more opinionated than Moose is.  We can impose extra rules such as "don't modify classes after creating an object with it".  Part of what allows us to be more opinionated is that Moose already exists, so if you need the extra power or flexibility, you can use it instead.</p>
+<p><strong>Are a lot of the Moo developers people who had been working on Moose?</strong></p>
+<p>Yes.  Moo was created by mst. <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id14" id="id6">[6]</a>  He used Moose extensively, but because of how heavy it was, he wanted to create an lighter alternative.  In his words, he forced himself to do everything manually for about a year, to figure out what parts he couldn't do without. <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id15" id="id7">[7]</a>  Most of the contributors use Moose extensively as well.  Different projects call for different trade offs, which will suit one better than the other.</p>
+<p><strong>For sure.  Do you feel like the feature sets in Moose and Moo are more or less complete, or are there changes that people are looking at making?</strong></p>
+<p>For Moo, there's very little in terms of new features that we would want to add.  It's mostly extending it to cover new edge cases that are discovered, or allowing it to work better with other new tools that are developed.  For Moose they are looking at extending it a bit more.  While it mostly does what it needs to, there are a few MooseX extensions <a class="footnote-reference" href="../../posts/keeping-perl-classy/#id16" id="id8">[8]</a> that have proved themselves and are being considered for integration into Moose itself.  This is rather slow going though, as Moose is a large complex codebase.  I can keep the entire Moo codebase in my head at the same time, but changes to Moose always involve more research.</p>
+<p><strong>One more question.  Any advice for people like me, who are working on a Perl project with Moose without much background?  What are the biggest differences for a user, compared to other object-oriented systems like Python or C++ (which are obviously very different from each other as well)?</strong></p>
+<p>There are the obvious differences in terms of how attributes are handled, but I'd say the largest difference is the emphasis on roles as the primary tool to combine behaviors.  Unless you are using lots of MooseX modules, most of the way packages and methods interact are pretty straightforward, but roles are a change in organization that doesn't have a direct comparison in C++ as far as I'm aware.  It would be closer to mixins in Python, but I'm not as familiar with how those work.</p>
+<p><strong>Awesome, thanks so much for your time!</strong></p>
+<p>No problem.</p>
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id1">[1]</a></td>
+<td>"The moose bellowed again, pawing the ground and snorting angrily.  I knew I better get the mro right this time..."</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id2">[2]</a></td>
+<td>after a package is defined, you'll often see a call to __PACKAGE__-&gt;meta-&gt;make_immutable.  As he's describing, it's basically announcing that you don't intend to make any more changes to the class, so as to allow certain optimizations.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id3">[3]</a></td>
+<td>It's pretty common to see a Perl module called Foo::Tiny that implements similar functionality to Foo, but with more attention to avoiding dependencies and performance hits from uncommonly used features.  They generally don't use Moose.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id4">[4]</a></td>
+<td>By default, all variables in Perl are passed around by value, but it does provide references (similar to those in Java).  So you'll often see Perl programmers talking about hashrefs and arrayrefs.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id5">[5]</a></td>
+<td>A standard module that provides you with access to the compiler's parse tree.  I know, right?</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id6">[6]</a></td>
+<td>I've met mst on irc!  He told me (nicely) to rtfm.  I'm pretty sure that makes me a celebrity, but I won't let it go to my head.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id7">[7]</a></td>
+<td>That's fucking hardcore.  I think this is why the two of us hit it off so well.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id16" rules="none">
+<colgroup>
+<col class="label">
+<col>
+</colgroup>
+<tbody valign="top">
+<tr>
+<td class="label"><a class="fn-backref" href="../../posts/keeping-perl-classy/#id8">[8]</a></td>
+<td>The MooseX namespace is reserved for packages that extend Moose in some way.  For example, the code I'm working on uses MooseX::Types::ElasticSearch to provide something like an ORM on top of the basic Elasticsearch driver.  But because Moose is just implemented in Perl, you can make more fundamental changes to how the object system works.  I wonder if allowing this kind of evolution is why the Perl 5 team went with such a basic object system in the core language.</td>
+</tr>
+</tbody>
+</table>
+</div>
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    
+        <ul itemprop="keywords" class="tags">
+           <li><a class="tag p-category" href="../../categories/perl/" rel="tag">Perl</a></li>
+        </ul>
+
+    
+        <ul class="pager">
+            <li class="previous">
+                <a href="../../posts/dare-to-be-stupid/" rel="prev" title="Dare to be Stupid">Previous post</a>
+            </li>
+        </ul>
+
+    </nav>
+    </aside>
+        <section class="comments">
+        <h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="superluser",
+            disqus_url="http://rose.github.io/posts/keeping-perl-classy/",
+        disqus_title="Keeping Perl Classy",
+        disqus_identifier="cache/posts/keeping-perl-classy.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="//disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section>
+    
+
+</article>
+
+        
+       <script>var disqus_shortname="superluser";(function(){var a=document.createElement("script");a.async=true;a.src="//"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+
+
+        </div>
+        <!--End of body content-->
+
+        <footer>
+            Contents © 2015         <a href="mailto:rose@happyspork.com">Rose Ames</a> - Powered by         <a href="http://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+    </div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script>
+    
+<!-- Social buttons -->
+<div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
+<a class="addthis_button_more">Share</a>
+<ul>
+<li>
+<a class="addthis_button_facebook"></a>
+</li>
+<li>
+<a class="addthis_button_google_plusone_share"></a>
+</li>
+<li>
+<a class="addthis_button_linkedin"></a>
+</li>
+<li>
+<a class="addthis_button_twitter"></a>
+</li>
+</ul>
+</div>
+<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
+<!-- End of social buttons -->
+
+
+    <script>jQuery("a.image-reference").colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+    <!-- fancy dates -->
+    <script>
+    moment.locale("");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script>
+    <!-- end fancy dates -->
+    
+
+
+</body>
+</html>

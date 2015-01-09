@@ -22,7 +22,7 @@
  </url>
  <url>
   <loc>http://rose.github.io/categories/</loc>
-  <lastmod>2015-01-05</lastmod>
+  <lastmod>2015-01-08</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/categories/assembly/</loc>
@@ -53,6 +53,10 @@
   <lastmod>2014-11-01</lastmod>
  </url>
  <url>
+  <loc>http://rose.github.io/categories/perl/</loc>
+  <lastmod>2015-01-08</lastmod>
+ </url>
+ <url>
   <loc>http://rose.github.io/categories/python/</loc>
   <lastmod>2014-11-01</lastmod>
  </url>
@@ -66,7 +70,7 @@
  </url>
  <url>
   <loc>http://rose.github.io/index-2.html</loc>
-  <lastmod>2015-01-05</lastmod>
+  <lastmod>2015-01-08</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/listings/</loc>
@@ -107,6 +111,10 @@
  <url>
   <loc>http://rose.github.io/posts/incremental-complexity/</loc>
   <lastmod>2014-11-01</lastmod>
+ </url>
+ <url>
+  <loc>http://rose.github.io/posts/keeping-perl-classy/</loc>
+  <lastmod>2015-01-08</lastmod>
  </url>
  <url>
   <loc>http://rose.github.io/posts/measured-in-wats/</loc>
